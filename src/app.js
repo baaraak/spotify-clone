@@ -1,17 +1,31 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { useAuth } from './context/auth-context';
 import { FullPageSpinner } from './components/lib';
 
-const AuthenticatedApp = React.lazy(() =>
-  import(/* webpackPrefetch: true */ './authenticated-app'),
-);
-const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'));
+function Sidebar() {
+  return <div>sidebar</div>;
+}
+
+function Header() {
+  return <div>Header</div>;
+}
+
+function Footer() {
+  return <div>Footer</div>;
+}
 
 function App() {
-  const { user } = useAuth();
   return (
     <React.Suspense fallback={<FullPageSpinner />}>
-      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+      <Sidebar />
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          home
+        </Route>
+      </Switch>
+      <Footer />
     </React.Suspense>
   );
 }

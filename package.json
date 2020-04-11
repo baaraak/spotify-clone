@@ -18,6 +18,7 @@
     "match-sorter": "^4.1.0",
     "msw": "^0.12.0",
     "node-match-path": "^0.3.1",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -25,10 +26,10 @@
     "react-icons": "^3.9.0",
     "react-query": "^1.2.1",
     "react-query-devtools": "^1.1.0",
-    "react-router": "^6.0.0-alpha.3",
-    "react-router-dom": "^6.0.0-alpha.3",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
-    "stop-runaway-react-effects": "^2.0.0"
+    "stop-runaway-react-effects": "^2.0.0",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "prettier": "^2.0.4"
