@@ -1,19 +1,19 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
-import {jsx} from '@emotion/core'
+import { jsx } from '@emotion/core';
 
-import {Link} from 'react-router-dom'
-import {useListItem} from 'utils/list-items'
-import * as mq from 'styles/media-queries'
-import * as colors from 'styles/colors'
-import {StatusButtons} from './status-buttons'
-import {Rating} from './rating'
+import { Link } from 'react-router-dom';
+import { useListItem } from 'utils/list-items';
+import * as mq from 'styles/media-queries';
+import * as colors from 'styles/colors';
+import { StatusButtons } from './status-buttons';
+import { Rating } from './rating';
 
-function BookRow({book}) {
-  const {title, author, coverImageUrl} = book
-  const listItem = useListItem(book.id)
+function BookRow({ book }) {
+  const { title, author, coverImageUrl } = book;
+  const listItem = useListItem(book.id);
 
-  const id = `book-row-book-${book.id}`
+  const id = `book-row-book-${book.id}`;
 
   return (
     <div
@@ -55,12 +55,12 @@ function BookRow({book}) {
           <img
             src={coverImageUrl}
             alt={`${title} book cover`}
-            css={{maxHeight: '100%', width: '100%'}}
+            css={{ maxHeight: '100%', width: '100%' }}
           />
         </div>
-        <div css={{flex: 1}}>
-          <div css={{display: 'flex', justifyContent: 'space-between'}}>
-            <div css={{flex: 1}}>
+        <div css={{ flex: 1 }}>
+          <div css={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div css={{ flex: 1 }}>
               <h2
                 id={id}
                 css={{
@@ -73,7 +73,7 @@ function BookRow({book}) {
               </h2>
               {listItem?.finishDate ? <Rating listItem={listItem} /> : null}
             </div>
-            <div css={{marginLeft: 10}}>
+            <div css={{ marginLeft: 10 }}>
               <div
                 css={{
                   marginTop: '0.4em',
@@ -103,7 +103,7 @@ function BookRow({book}) {
         <StatusButtons book={book} />
       </div>
     </div>
-  )
+  );
 }
 
-export {BookRow}
+export { BookRow };

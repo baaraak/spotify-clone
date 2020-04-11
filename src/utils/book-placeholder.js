@@ -1,4 +1,4 @@
-import bookPlaceholderSvg from 'assets/book-placeholder.svg'
+import bookPlaceholderSvg from 'assets/book-placeholder.svg';
 
 const loadingBook = {
   title: 'Loading...',
@@ -7,6 +7,6 @@ const loadingBook = {
   publisher: 'Loading Publishing',
   synopsis: 'Loading...',
   loadingBook: true,
-}
+};
 
-export {loadingBook}
+export { loadingBook };

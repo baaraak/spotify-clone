@@ -1,34 +1,34 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
-import {jsx} from '@emotion/core'
+import { jsx } from '@emotion/core';
 
-import React from 'react'
-import VisuallyHidden from '@reach/visually-hidden'
+import React from 'react';
+import VisuallyHidden from '@reach/visually-hidden';
 import {
   CircleButton,
   Button,
   Spinner,
   FormGroup,
   ErrorMessage,
-} from './components/lib'
-import {Modal, ModalDismissButton} from './components/modal'
-import {Logo} from './components/logo'
-import {Input} from './components/lib'
-import {useAuth} from './context/auth-context'
-import {useAsync} from './utils/use-async'
+} from './components/lib';
+import { Modal, ModalDismissButton } from './components/modal';
+import { Logo } from './components/logo';
+import { Input } from './components/lib';
+import { useAuth } from './context/auth-context';
+import { useAsync } from './utils/use-async';
 
-function LoginForm({onSubmit, submitButton}) {
-  const {isLoading, isError, error, run} = useAsync()
+function LoginForm({ onSubmit, submitButton }) {
+  const { isLoading, isError, error, run } = useAsync();
   function handleSubmit(event) {
-    event.preventDefault()
-    const {username, password} = event.target.elements
+    event.preventDefault();
+    const { username, password } = event.target.elements;
 
     run(
       onSubmit({
         username: username.value,
         password: password.value,
       }),
-    )
+    );
   }
 
   return (
@@ -56,20 +56,20 @@ function LoginForm({onSubmit, submitButton}) {
       <div>
         {React.cloneElement(
           submitButton,
-          {type: 'submit'},
+          { type: 'submit' },
           ...(Array.isArray(submitButton.props.children)
             ? submitButton.props.children
             : [submitButton.props.children]),
-          isLoading ? <Spinner css={{marginLeft: 5}} /> : null,
+          isLoading ? <Spinner css={{ marginLeft: 5 }} /> : null,
         )}
       </div>
       {isError ? <ErrorMessage error={error} /> : null}
     </form>
-  )
+  );
 }
 
 const circleDismissButton = (
-  <div css={{display: 'flex', justifyContent: 'flex-end'}}>
+  <div css={{ display: 'flex', justifyContent: 'flex-end' }}>
     <ModalDismissButton>
       <CircleButton>
         <VisuallyHidden>Close</VisuallyHidden>
@@ -77,10 +77,10 @@ const circleDismissButton = (
       </CircleButton>
     </ModalDismissButton>
   </div>
-)
+);
 
 function UnauthenticatedApp() {
-  const {login, register} = useAuth()
+  const { login, register } = useAuth();
 
   return (
     <div
@@ -107,7 +107,7 @@ function UnauthenticatedApp() {
           button={<Button variant="primary">Login</Button>}
         >
           {circleDismissButton}
-          <h3 css={{textAlign: 'center', fontSize: '2em'}}>Login</h3>
+          <h3 css={{ textAlign: 'center', fontSize: '2em' }}>Login</h3>
           <LoginForm
             onSubmit={login}
             submitButton={<Button variant="primary">Login</Button>}
@@ -118,7 +118,7 @@ function UnauthenticatedApp() {
           button={<Button variant="secondary">Register</Button>}
         >
           {circleDismissButton}
-          <h3 css={{textAlign: 'center', fontSize: '2em'}}>Register</h3>
+          <h3 css={{ textAlign: 'center', fontSize: '2em' }}>Register</h3>
           <LoginForm
             onSubmit={register}
             submitButton={<Button variant="secondary">Register</Button>}
@@ -126,7 +126,7 @@ function UnauthenticatedApp() {
         </Modal>
       </div>
     </div>
-  )
+  );
 }
 
-export default UnauthenticatedApp
+export default UnauthenticatedApp;

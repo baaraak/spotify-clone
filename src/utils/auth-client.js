@@ -1,35 +1,37 @@
-import {client, localStorageKey} from './api-client'
+import { client, localStorageKey } from './api-client';
 
-function handleUserResponse({user: {token, ...user}}) {
-  window.localStorage.setItem(localStorageKey, token)
-  return user
+function handleUserResponse({ user: { token, ...user } }) {
+  window.localStorage.setItem(localStorageKey, token);
+  return user;
 }
 
 function getUser() {
-  const token = getToken()
+  const token = getToken();
   if (!token) {
-    return Promise.resolve(null)
+    return Promise.resolve(null);
   }
-  return client('me').then(data => data.user)
+  return client('me').then(data => data.user);
 }
 
-function login({username, password}) {
-  return client('login', {body: {username, password}}).then(handleUserResponse)
-}
-
-function register({username, password}) {
-  return client('register', {body: {username, password}}).then(
+function login({ username, password }) {
+  return client('login', { body: { username, password } }).then(
     handleUserResponse,
-  )
+  );
+}
+
+function register({ username, password }) {
+  return client('register', { body: { username, password } }).then(
+    handleUserResponse,
+  );
 }
 
 function getToken() {
-  return window.localStorage.getItem(localStorageKey)
+  return window.localStorage.getItem(localStorageKey);
 }
 
 function isLoggedIn() {
-  return Boolean(getToken())
+  return Boolean(getToken());
 }
 
-export {login, register, getToken, getUser, isLoggedIn}
-export {logout} from './api-client'
+export { login, register, getToken, getUser, isLoggedIn };
+export { logout } from './api-client';

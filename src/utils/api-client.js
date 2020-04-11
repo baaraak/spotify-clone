@@ -1,16 +1,16 @@
-import {queryCache} from 'react-query'
-const localStorageKey = '__bookshelf_token__'
+import { queryCache } from 'react-query';
+const localStorageKey = '__bookshelf_token__';
 
-async function client(endpoint, {body, ...customConfig} = {}) {
+async function client(endpoint, { body, ...customConfig } = {}) {
   // Ignore this... It's the *only* thing we need to do thanks to the way we
   // handle fetch requests with the service worker. In your apps you shouldn't
   // need to have something like this.
-  await window.__bookshelf_serverReady
+  await window.__bookshelf_serverReady;
 
-  const token = window.localStorage.getItem(localStorageKey)
-  const headers = {'content-type': 'application/json'}
+  const token = window.localStorage.getItem(localStorageKey);
+  const headers = { 'content-type': 'application/json' };
   if (token) {
-    headers.Authorization = `Bearer ${token}`
+    headers.Authorization = `Bearer ${token}`;
   }
   const config = {
     method: body ? 'POST' : 'GET',
@@ -19,32 +19,32 @@ async function client(endpoint, {body, ...customConfig} = {}) {
       ...headers,
       ...customConfig.headers,
     },
-  }
+  };
   if (body) {
-    config.body = JSON.stringify(body)
+    config.body = JSON.stringify(body);
   }
 
   return window
     .fetch(`${process.env.REACT_APP_API_URL}/${endpoint}`, config)
     .then(async r => {
       if (r.status === 401) {
-        logout()
+        logout();
         // refresh the page for them
-        window.location.assign(window.location)
-        return
+        window.location.assign(window.location);
+        return;
       }
-      const data = await r.json()
+      const data = await r.json();
       if (r.ok) {
-        return data
+        return data;
       } else {
-        return Promise.reject(data)
+        return Promise.reject(data);
       }
-    })
+    });
 }
 
 function logout() {
-  queryCache.clear()
-  window.localStorage.removeItem(localStorageKey)
+  queryCache.clear();
+  window.localStorage.removeItem(localStorageKey);
 }
 
-export {client, localStorageKey, logout}
+export { client, localStorageKey, logout };

@@ -1,45 +1,45 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
-import {jsx, Global} from '@emotion/core'
+import { jsx, Global } from '@emotion/core';
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {FaTools} from 'react-icons/fa'
-import {Tooltip} from '@reach/tooltip'
-import './dev-tools.css'
-import * as reactQuery from 'react-query'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { FaTools } from 'react-icons/fa';
+import { Tooltip } from '@reach/tooltip';
+import './dev-tools.css';
+import * as reactQuery from 'react-query';
 // pulling the development thing directly because I'm not worried about
 // bundle size since this won't be loaded in prod unless the query string/localStorage key is set
-import {ReactQueryDevtoolsPanel} from 'react-query-devtools/dist/react-query-devtools.development'
+import { ReactQueryDevtoolsPanel } from 'react-query-devtools/dist/react-query-devtools.development';
 
 function install() {
   // add some things to window to make it easier to debug
-  window.reactQuery = reactQuery
+  window.reactQuery = reactQuery;
 
   const requireDevToolsLocal = require.context(
     './',
     false,
     /dev-tools\.local\.js/,
-  )
-  const local = requireDevToolsLocal.keys()[0]
+  );
+  const local = requireDevToolsLocal.keys()[0];
   if (local) {
-    requireDevToolsLocal(local).default
+    requireDevToolsLocal(local).default;
   }
 
   function DevTools() {
-    const rootRef = React.useRef()
-    const [hovering, setHovering] = React.useState(false)
-    const [persist, setPersist] = React.useState(false)
-    const show = persist || hovering
-    const toggleShow = () => setPersist(v => !v)
+    const rootRef = React.useRef();
+    const [hovering, setHovering] = React.useState(false);
+    const [persist, setPersist] = React.useState(false);
+    const show = persist || hovering;
+    const toggleShow = () => setPersist(v => !v);
     React.useEffect(() => {
       function updateHoverState(event) {
-        setHovering(rootRef.current?.contains(event.target) ?? false)
+        setHovering(rootRef.current?.contains(event.target) ?? false);
       }
-      document.body.addEventListener('mousemove', updateHoverState)
+      document.body.addEventListener('mousemove', updateHoverState);
       return () =>
-        document.body.removeEventListener('mousemove', updateHoverState)
-    }, [])
+        document.body.removeEventListener('mousemove', updateHoverState);
+    }, []);
     return (
       <div
         css={{
@@ -115,35 +115,36 @@ function install() {
           />
         ) : null}
       </div>
-    )
+    );
   }
   // add dev tools UI to the page
-  const devToolsRoot = document.createElement('div')
-  document.body.appendChild(devToolsRoot)
-  ReactDOM.render(<DevTools />, devToolsRoot)
+  const devToolsRoot = document.createElement('div');
+  document.body.appendChild(devToolsRoot);
+  ReactDOM.render(<DevTools />, devToolsRoot);
 }
 
 function ClearLocalStorage() {
   function clear() {
-    window.localStorage.clear()
-    window.location.assign(window.location)
+    window.localStorage.clear();
+    window.location.assign(window.location);
   }
-  return <button onClick={clear}>Purge Database</button>
+  return <button onClick={clear}>Purge Database</button>;
 }
 
 function FailureRate() {
   const [failureRate, setFailureRate] = useLocalStorageState(
     '__bookshelf_failure_rate__',
     0,
-  )
+  );
 
-  const handleChange = event => setFailureRate(Number(event.target.value) / 100)
+  const handleChange = event =>
+    setFailureRate(Number(event.target.value) / 100);
 
   return (
     <div>
       <label htmlFor="failureRate">Request Failure Percentage: </label>
       <input
-        css={{marginLeft: 6}}
+        css={{ marginLeft: 6 }}
         value={failureRate * 100}
         type="number"
         min="0"
@@ -153,21 +154,21 @@ function FailureRate() {
         id="failureRate"
       />
     </div>
-  )
+  );
 }
 
 function EnableDevTools() {
   const [enableDevToos, setEnableDevToos] = useLocalStorageState(
     'dev-tools',
     process.env.NODE_ENV === 'development',
-  )
+  );
 
-  const handleChange = event => setEnableDevToos(event.target.checked)
+  const handleChange = event => setEnableDevToos(event.target.checked);
 
   return (
     <div>
       <input
-        css={{marginRight: 6}}
+        css={{ marginRight: 6 }}
         checked={enableDevToos}
         type="checkbox"
         onChange={handleChange}
@@ -175,22 +176,22 @@ function EnableDevTools() {
       />
       <label htmlFor="enableDevToos">Enable DevTools by default</label>
     </div>
-  )
+  );
 }
 
 function RequestMinTime() {
   const [minTime, setMinTime] = useLocalStorageState(
     '__bookshelf_min_request_time__',
     400,
-  )
+  );
 
-  const handleChange = event => setMinTime(Number(event.target.value))
+  const handleChange = event => setMinTime(Number(event.target.value));
 
   return (
     <div>
       <label htmlFor="minTime">Request min time (ms): </label>
       <input
-        css={{marginLeft: 6}}
+        css={{ marginLeft: 6 }}
         value={minTime}
         type="number"
         step="100"
@@ -200,22 +201,22 @@ function RequestMinTime() {
         id="minTime"
       />
     </div>
-  )
+  );
 }
 
 function RequestVarTime() {
   const [varTime, setVarTime] = useLocalStorageState(
     '__bookshelf_variable_request_time__',
     400,
-  )
+  );
 
-  const handleChange = event => setVarTime(Number(event.target.value))
+  const handleChange = event => setVarTime(Number(event.target.value));
 
   return (
     <div>
       <label htmlFor="varTime">Request variable time (ms): </label>
       <input
-        css={{marginLeft: 6}}
+        css={{ marginLeft: 6 }}
         value={varTime}
         type="number"
         step="100"
@@ -225,7 +226,7 @@ function RequestVarTime() {
         id="varTime"
       />
     </div>
-  )
+  );
 }
 
 /**
@@ -237,34 +238,34 @@ function RequestVarTime() {
 function useLocalStorageState(
   key,
   defaultValue = '',
-  {serialize = JSON.stringify, deserialize = JSON.parse} = {},
+  { serialize = JSON.stringify, deserialize = JSON.parse } = {},
 ) {
   const [state, setState] = React.useState(() => {
-    const valueInLocalStorage = window.localStorage.getItem(key)
+    const valueInLocalStorage = window.localStorage.getItem(key);
     if (valueInLocalStorage) {
-      return deserialize(valueInLocalStorage)
+      return deserialize(valueInLocalStorage);
     }
-    return typeof defaultValue === 'function' ? defaultValue() : defaultValue
-  })
+    return typeof defaultValue === 'function' ? defaultValue() : defaultValue;
+  });
 
-  const prevKeyRef = React.useRef(key)
+  const prevKeyRef = React.useRef(key);
 
   React.useEffect(() => {
-    const prevKey = prevKeyRef.current
+    const prevKey = prevKeyRef.current;
     if (prevKey !== key) {
-      window.localStorage.removeItem(prevKey)
+      window.localStorage.removeItem(prevKey);
     }
-    prevKeyRef.current = key
-  }, [key])
+    prevKeyRef.current = key;
+  }, [key]);
 
   React.useEffect(() => {
-    window.localStorage.setItem(key, serialize(state))
-  }, [key, state, serialize])
+    window.localStorage.setItem(key, serialize(state));
+  }, [key, state, serialize]);
 
-  return [state, setState]
+  return [state, setState];
 }
 
-export {install}
+export { install };
 
 /*
 eslint

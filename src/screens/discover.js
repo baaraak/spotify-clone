@@ -1,23 +1,23 @@
-import React from 'react'
-import Tooltip from '@reach/tooltip'
-import {FaSearch, FaTimes} from 'react-icons/fa'
-import {useBookSearch, refetchBookSearchQuery} from 'utils/books'
-import {BookRow} from 'components/book-row'
-import {BookListUL, Spinner, Input} from 'components/lib'
+import React from 'react';
+import Tooltip from '@reach/tooltip';
+import { FaSearch, FaTimes } from 'react-icons/fa';
+import { useBookSearch, refetchBookSearchQuery } from 'utils/books';
+import { BookRow } from 'components/book-row';
+import { BookListUL, Spinner, Input } from 'components/lib';
 
 function DiscoverBooksScreen() {
-  const [query, setQuery] = React.useState('')
-  const [hasSearched, setHasSearched] = React.useState()
-  const {books, error, isLoading, isError, isSuccess} = useBookSearch(query)
+  const [query, setQuery] = React.useState('');
+  const [hasSearched, setHasSearched] = React.useState();
+  const { books, error, isLoading, isError, isSuccess } = useBookSearch(query);
 
   React.useEffect(() => {
-    return () => refetchBookSearchQuery()
-  }, [])
+    return () => refetchBookSearchQuery();
+  }, []);
 
   function handleSearchClick(event) {
-    event.preventDefault()
-    setHasSearched(true)
-    setQuery(event.target.elements.search.value)
+    event.preventDefault();
+    setHasSearched(true);
+    setQuery(event.target.elements.search.value);
   }
 
   return (
@@ -27,7 +27,7 @@ function DiscoverBooksScreen() {
           <Input
             placeholder="Search books..."
             id="search"
-            css={{width: '100%'}}
+            css={{ width: '100%' }}
           />
           <Tooltip label="Search Books">
             <label htmlFor="search">
@@ -43,7 +43,7 @@ function DiscoverBooksScreen() {
                 {isLoading ? (
                   <Spinner />
                 ) : isError ? (
-                  <FaTimes aria-label="error" css={{color: 'red'}} />
+                  <FaTimes aria-label="error" css={{ color: 'red' }} />
                 ) : (
                   <FaSearch aria-label="search" />
                 )}
@@ -53,7 +53,7 @@ function DiscoverBooksScreen() {
         </form>
 
         {isError ? (
-          <div css={{color: 'red'}}>
+          <div css={{ color: 'red' }}>
             <p>There was an error:</p>
             <pre>{error.message}</pre>
           </div>
@@ -61,11 +61,11 @@ function DiscoverBooksScreen() {
       </div>
       <div>
         {hasSearched ? null : (
-          <div css={{marginTop: 20, fontSize: '1.2em', textAlign: 'center'}}>
+          <div css={{ marginTop: 20, fontSize: '1.2em', textAlign: 'center' }}>
             <p>Welcome to the discover page.</p>
             <p>Here, let me load a few books for you...</p>
             {isLoading ? (
-              <div css={{width: '100%', margin: 'auto'}}>
+              <div css={{ width: '100%', margin: 'auto' }}>
                 <Spinner />
               </div>
             ) : isSuccess && books.length ? (
@@ -78,7 +78,7 @@ function DiscoverBooksScreen() {
           </div>
         )}
         {books.length ? (
-          <BookListUL css={{marginTop: 20}}>
+          <BookListUL css={{ marginTop: 20 }}>
             {books.map(book => (
               <li key={book.id}>
                 <BookRow key={book.id} book={book} />
@@ -86,9 +86,9 @@ function DiscoverBooksScreen() {
             ))}
           </BookListUL>
         ) : hasSearched ? (
-          <div css={{marginTop: 20, fontSize: '1.2em', textAlign: 'center'}}>
+          <div css={{ marginTop: 20, fontSize: '1.2em', textAlign: 'center' }}>
             {isLoading ? (
-              <div css={{width: '100%', margin: 'auto'}}>
+              <div css={{ width: '100%', margin: 'auto' }}>
                 <Spinner />
               </div>
             ) : (
@@ -101,7 +101,7 @@ function DiscoverBooksScreen() {
         ) : null}
       </div>
     </div>
-  )
+  );
 }
 
-export {DiscoverBooksScreen}
+export { DiscoverBooksScreen };

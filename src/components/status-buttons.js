@@ -1,34 +1,34 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
-import {jsx} from '@emotion/core'
+import { jsx } from '@emotion/core';
 
-import React from 'react'
+import React from 'react';
 import {
   FaCheckCircle,
   FaPlusCircle,
   FaMinusCircle,
   FaBook,
-} from 'react-icons/fa'
-import {FaTimesCircle} from 'react-icons/fa'
-import Tooltip from '@reach/tooltip'
+} from 'react-icons/fa';
+import { FaTimesCircle } from 'react-icons/fa';
+import Tooltip from '@reach/tooltip';
 import {
   useListItem,
   useUpdateListItem,
   useRemoveListItem,
   useCreateListItem,
-} from 'utils/list-items'
-import * as colors from 'styles/colors'
-import {useAsync} from 'utils/use-async'
-import {CircleButton, Spinner} from './lib'
+} from 'utils/list-items';
+import * as colors from 'styles/colors';
+import { useAsync } from 'utils/use-async';
+import { CircleButton, Spinner } from './lib';
 
-function TooltipButton({label, highlight, onClick, icon, ...rest}) {
-  const {isLoading, isError, error, run, reset} = useAsync()
+function TooltipButton({ label, highlight, onClick, icon, ...rest }) {
+  const { isLoading, isError, error, run, reset } = useAsync();
 
   function handleClick() {
     if (isError) {
-      reset()
+      reset();
     } else {
-      run(onClick())
+      run(onClick());
     }
   }
 
@@ -53,15 +53,15 @@ function TooltipButton({label, highlight, onClick, icon, ...rest}) {
         {isLoading ? <Spinner /> : isError ? <FaTimesCircle /> : icon}
       </CircleButton>
     </Tooltip>
-  )
+  );
 }
 
-function StatusButtons({book}) {
-  const listItem = useListItem(book.id)
+function StatusButtons({ book }) {
+  const listItem = useListItem(book.id);
 
-  const [mutate] = useUpdateListItem()
-  const [handleRemoveClick] = useRemoveListItem()
-  const [handleAddClick] = useCreateListItem()
+  const [mutate] = useUpdateListItem();
+  const [handleRemoveClick] = useRemoveListItem();
+  const [handleAddClick] = useCreateListItem();
 
   return (
     <React.Fragment>
@@ -70,14 +70,14 @@ function StatusButtons({book}) {
           <TooltipButton
             label="Unmark as read"
             highlight={colors.yellow}
-            onClick={() => mutate({id: listItem.id, finishDate: null})}
+            onClick={() => mutate({ id: listItem.id, finishDate: null })}
             icon={<FaBook />}
           />
         ) : (
           <TooltipButton
             label="Mark as read"
             highlight={colors.green}
-            onClick={() => mutate({id: listItem.id, finishDate: Date.now()})}
+            onClick={() => mutate({ id: listItem.id, finishDate: Date.now() })}
             icon={<FaCheckCircle />}
           />
         )
@@ -86,19 +86,19 @@ function StatusButtons({book}) {
         <TooltipButton
           label="Remove from list"
           highlight={colors.danger}
-          onClick={() => handleRemoveClick({id: listItem.id})}
+          onClick={() => handleRemoveClick({ id: listItem.id })}
           icon={<FaMinusCircle />}
         />
       ) : (
         <TooltipButton
           label="Add to list"
           highlight={colors.indigo}
-          onClick={() => handleAddClick({bookId: book.id})}
+          onClick={() => handleAddClick({ bookId: book.id })}
           icon={<FaPlusCircle />}
         />
       )}
     </React.Fragment>
-  )
+  );
 }
 
-export {StatusButtons}
+export { StatusButtons };

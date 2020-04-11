@@ -1,20 +1,20 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
-import {jsx} from '@emotion/core'
+import { jsx } from '@emotion/core';
 
-import {Routes, Route, Link as RouterLink, useMatch} from 'react-router-dom'
-import ErrorBoundary from 'react-error-boundary'
-import {Button, ErrorMessage, FullPageErrorFallback} from './components/lib'
-import * as mq from './styles/media-queries'
-import * as colors from './styles/colors'
-import {useAuth} from './context/auth-context'
-import {ReadingListScreen} from './screens/reading-list'
-import {FinishedScreen} from './screens/finished'
-import {DiscoverBooksScreen} from './screens/discover'
-import {BookScreen} from './screens/book'
-import {NotFoundScreen} from './screens/not-found'
+import { Routes, Route, Link as RouterLink, useMatch } from 'react-router-dom';
+import ErrorBoundary from 'react-error-boundary';
+import { Button, ErrorMessage, FullPageErrorFallback } from './components/lib';
+import * as mq from './styles/media-queries';
+import * as colors from './styles/colors';
+import { useAuth } from './context/auth-context';
+import { ReadingListScreen } from './screens/reading-list';
+import { FinishedScreen } from './screens/finished';
+import { DiscoverBooksScreen } from './screens/discover';
+import { BookScreen } from './screens/book';
+import { NotFoundScreen } from './screens/not-found';
 
-function ErrorFallback({error}) {
+function ErrorFallback({ error }) {
   return (
     <ErrorMessage
       error={error}
@@ -26,11 +26,11 @@ function ErrorFallback({error}) {
         alignItems: 'center',
       }}
     />
-  )
+  );
 }
 
 function AuthenticatedApp() {
-  const {user, logout} = useAuth()
+  const { user, logout } = useAuth();
   return (
     <ErrorBoundary FallbackComponent={FullPageErrorFallback}>
       <div
@@ -43,7 +43,11 @@ function AuthenticatedApp() {
         }}
       >
         {user.username}
-        <Button variant="secondary" css={{marginLeft: '10px'}} onClick={logout}>
+        <Button
+          variant="secondary"
+          css={{ marginLeft: '10px' }}
+          onClick={logout}
+        >
           Logout
         </Button>
       </div>
@@ -63,21 +67,21 @@ function AuthenticatedApp() {
           },
         }}
       >
-        <div css={{position: 'relative'}}>
+        <div css={{ position: 'relative' }}>
           <Nav />
         </div>
-        <main css={{width: '100%'}}>
+        <main css={{ width: '100%' }}>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <AppRoutes />
           </ErrorBoundary>
         </main>
       </div>
     </ErrorBoundary>
-  )
+  );
 }
 
 function NavLink(props) {
-  const match = useMatch(props.to)
+  const match = useMatch(props.to);
   return (
     <RouterLink
       css={[
@@ -108,7 +112,7 @@ function NavLink(props) {
       ]}
       {...props}
     />
-  )
+  );
 }
 
 function Nav(params) {
@@ -143,7 +147,7 @@ function Nav(params) {
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
 function AppRoutes() {
@@ -155,7 +159,7 @@ function AppRoutes() {
       <Route path="/book/:bookId" element={<BookScreen />} />
       <Route path="*" element={<NotFoundScreen />} />
     </Routes>
-  )
+  );
 }
 
-export default AuthenticatedApp
+export default AuthenticatedApp;
