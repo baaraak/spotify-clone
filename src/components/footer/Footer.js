@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  IoIosPlay,
-  IoIosShuffle,
-  IoMdSkipForward,
-  IoMdSkipBackward,
-  IoIosRepeat,
-} from 'react-icons/io';
+
+import Player from 'modules/player/Player';
 import { useAuth } from 'context/auth-context';
 
 const Container = styled.div`
@@ -18,26 +13,11 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const PlayerActions = styled.div`
-  margin: 0 auto;
-`;
-const PlayerBar = styled.div``;
-const PlayerControl = styled.div``;
-
 export default function Footer() {
   const { user } = useAuth();
   return (
     <Container>
-      {user && <div>Player details</div>}
-      <PlayerActions>
-        <IoIosShuffle />
-        <IoMdSkipBackward />
-        <IoIosPlay />
-        <IoMdSkipForward />
-        <IoIosRepeat />
-        <PlayerBar></PlayerBar>
-      </PlayerActions>
-      {user && <PlayerControl>con trol</PlayerControl>}
+      <Player user={user} />
     </Container>
   );
 }

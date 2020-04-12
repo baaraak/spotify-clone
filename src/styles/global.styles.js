@@ -7,7 +7,7 @@ export default createGlobalStyle`
     min-height: 600px;
     overflow: hidden;
     height: 100vh;
-    background: #090909;
+    background: #030303;
     color: #fff;
   }
 
