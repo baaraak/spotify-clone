@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import NavigationButtons from './NavigationButtons.component';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
   grid-area: header;
   position: sticky;
   background: rgba(0, 0, 0, 0.3);
-  margin-top: -60px;
-  padding-top: 70px;
+  height: ${props => props.theme.headerHeight};
 `;
 
 export default function Header() {

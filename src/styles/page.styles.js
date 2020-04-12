@@ -6,5 +6,6 @@ export const GridPageContainer = styled.div`
   overflow: hidden;
   background: #121212;
   overflow-y: scroll;
-  /* marin-top: */
+  margin-top: -${props => props.theme.headerHeight};
+  padding-top: ${props => props.theme.headerHeight};
 `;

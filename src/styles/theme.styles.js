@@ -1,14 +1,11 @@
 export const theme = {
   colors: {
-    powderWhite: '#FFFDF9',
-    persianGreen: '#06B49A',
-    lightBlue: '#AFDBD2',
-    onyx: '#36313D',
+    white: '#fff',
+    mainBlackDark: '#030303',
+    mainBlackLight: '#121212',
+    blue: '#5594ef',
+    gray: '#282828',
+    text: '#b3b3b3',
   },
-  fonts: ['sans-serif', 'Roboto'],
-  fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
-  },
+  headerHeight: '60px',
 };
