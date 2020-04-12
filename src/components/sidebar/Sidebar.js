@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Logo from '../Logo';
 import { Link } from 'react-router-dom';
 
-import Navbar from './Navbar.component';
+import Navbar from '../navbar/Navbar';
 
 import { NavbarItems } from './Sidebar.constant';
 import Playlists from './Playlists.component';

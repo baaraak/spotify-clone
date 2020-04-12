@@ -1,21 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import NavigationButtons from './NavigationButtons.component';
+import { Container } from './Header.styles';
+import HeaderNav from './components/Header.nav';
+import AuthHeader from './components/Header.auth';
+import UnAuthHeader from './components/Header.unauth';
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  grid-area: header;
-  position: sticky;
-  background: rgba(0, 0, 0, 0.3);
-  height: ${props => props.theme.headerHeight};
-`;
+import { useAuth } from 'context/auth-context';
 
 export default function Header() {
+  const { user } = useAuth();
   return (
     <Container>
-      <NavigationButtons />
+      <HeaderNav />
+      {user ? <AuthHeader /> : <UnAuthHeader />}
     </Container>
   );
 }

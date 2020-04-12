@@ -1,14 +1,13 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
 `;
 
-const NavItemLink = styled(Link)`
+export const NavItemLink = styled(Link)`
   margin-bottom: 5px;
   color: #b3b3b3;
   text-decoration: none;
@@ -27,19 +26,6 @@ const NavItemLink = styled(Link)`
   }
 `;
 
-const NavIcon = styled.span`
+export const NavIcon = styled.span`
   margin-right: 15px;
 `;
-
-export default function Navbar({ items }) {
-  return (
-    <Nav>
-      {items.map(item => (
-        <NavItemLink key={item.id} to={item.href} active={item.id === 'home'}>
-          <NavIcon>{item.icon && item.icon({ size: '23px' })}</NavIcon>
-          {item.label}
-        </NavItemLink>
-      ))}
-    </Nav>
-  );
-}
