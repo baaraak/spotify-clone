@@ -6,7 +6,7 @@ import React from 'react';
 import { bootstrapAppData } from 'utils/bootstrap';
 import * as authClient from 'utils/auth-client';
 import { useAsync } from 'utils/use-async';
-import { FullPageSpinner, FullPageErrorFallback } from 'components/lib';
+import Spinner from '../components/Spinner';
 
 const AuthContext = React.createContext();
 AuthContext.displayName = 'AuthContext';
@@ -53,11 +53,11 @@ function AuthProvider(props) {
   ]);
 
   if (isLoading || isIdle) {
-    return <FullPageSpinner />;
+    return <Spinner />;
   }
 
   if (isError) {
-    return <FullPageErrorFallback error={error} />;
+    return <Spinner error={error} />;
   }
 
   if (isSuccess) {

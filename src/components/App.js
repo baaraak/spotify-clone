@@ -7,7 +7,7 @@ import Header from './header/Header';
 import Footer from './footer/Footer';
 
 import Home from 'screens/Home';
-import { FullPageSpinner } from './lib';
+import Spinner from './Spinner';
 
 const Grid = styled.div`
   display: grid;
@@ -16,12 +16,13 @@ const Grid = styled.div`
     'sidebar page'
     'footer footer';
   grid-template-columns: 230px 1fr;
+  grid-template-rows: auto 1fr auto;
   height: 100%;
 `;
 
 function App() {
   return (
-    <React.Suspense fallback={<FullPageSpinner />}>
+    <React.Suspense fallback={<Spinner />}>
       <Grid>
         <Sidebar />
         <Header />

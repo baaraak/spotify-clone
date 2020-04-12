@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   grid-area: footer;
-  background: red;
+  background: #282828;
 `;
 
 export default function Footer() {

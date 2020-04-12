@@ -5,6 +5,7 @@ import Logo from '../Logo';
 import Navbar from './Navbar.component';
 
 import { NavbarItems } from './Sidebar.constant';
+import Playlists from './Playlists.component';
 
 const Container = styled.div`
   grid-area: sidebar;
@@ -18,6 +19,7 @@ export default function Sidebar() {
     <Container>
       <Logo />
       <Navbar items={NavbarItems} />
+      <Playlists />
     </Container>
   );
 }
