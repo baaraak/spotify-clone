@@ -1,11 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Logo from '../Logo';
+import Navbar from './Navbar.component';
+
+import { NavbarItems } from './Sidebar.constant';
+
 const Container = styled.div`
   grid-area: sidebar;
-  background: yellow;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default function Sidebar() {
-  return <Container>Sidebar</Container>;
+  return (
+    <Container>
+      <Logo />
+      <Navbar items={NavbarItems} />
+    </Container>
+  );
 }
