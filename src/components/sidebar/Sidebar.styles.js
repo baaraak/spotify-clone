@@ -15,6 +15,7 @@ export const StyledLogo = styled(Link)`
 export const Footer = styled.div`
   margin-top: auto;
   text-align: center;
+  margin-bottom: 75px;
 `;
 
 export const FooterLink = styled.a`

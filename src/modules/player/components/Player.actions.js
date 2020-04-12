@@ -25,7 +25,7 @@ export default function PlayerActions() {
           <IoMdSkipBackward size="16px" />
         </PlayerIcon>
         <PlayerIcon rounded>
-          <IoIosPlay size="26px" />
+          <IoIosPlay size="21px" />
         </PlayerIcon>
         <PlayerIcon>
           <IoMdSkipForward size="16px" />

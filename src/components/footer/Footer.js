@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Player from 'modules/player/Player';
 import { useAuth } from 'context/auth-context';
+import SignupPreviewBanner from 'modules/signupbanner/SignupPreviewBanner';
 
 const Container = styled.div`
   grid-area: footer;
@@ -17,6 +18,7 @@ export default function Footer() {
   const { user } = useAuth();
   return (
     <Container>
+      {!user && <SignupPreviewBanner />}
       <Player user={user} />
     </Container>
   );

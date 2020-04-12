@@ -19,12 +19,11 @@ export const PlayerIcon = styled.span`
   margin: 0 10px;
   color: ${props => props.theme.colors.text};
   transition: all 0.2s ease-in;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
 
   &:hover {
     color: ${props => props.theme.colors.white};
@@ -33,7 +32,6 @@ export const PlayerIcon = styled.span`
   ${props =>
     props.rounded &&
     `
-    padding-left: 7px; /* fix rounded icon center */
     border-radius: 50%;
     border: 1px solid ` + props.theme.colors.text}
 `;

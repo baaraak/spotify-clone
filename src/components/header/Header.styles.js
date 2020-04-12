@@ -45,7 +45,7 @@ export const Button = styled.div`
   font-weight: 600;
   color: #fff;
   transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
-  padding: 12px 34px;
+  padding: 12px 40px;
   cursor: pointer;
   text-align: center;
 
