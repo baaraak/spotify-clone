@@ -6,7 +6,8 @@ import Sidebar from './sidebar/Sidebar';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 
-import Home from 'screens/Home';
+import Home from '../screens/Home';
+import Search from '../screens/Search';
 import Spinner from './Spinner';
 
 const Grid = styled.div`
@@ -38,6 +39,9 @@ function Routes() {
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route path="/search">
+        <Search />
       </Route>
     </Switch>
   );

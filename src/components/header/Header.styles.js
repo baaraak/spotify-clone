@@ -15,13 +15,14 @@ export const Nav = styled.div`
 `;
 
 export const NavigationIcon = styled.span`
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
+  margin-right: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  backgrgound: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   color: #b3b3b3;
   cursor: pointer;
   transition: all 0.2s ease-in;

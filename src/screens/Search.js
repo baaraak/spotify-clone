@@ -11,6 +11,7 @@ const Container = styled.div`
 export default function Search() {
   return (
     <Container>
+      Search <br />
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ullam
       quod cumque incidunt libero nobis nesciunt tempora, neque aut officiis
       assumenda? Tenetur, aliquid. Magnam, impedit explicabo. Quo ad

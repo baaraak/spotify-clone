@@ -1,33 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Logo from '../Logo';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import Navbar from '../navbar/Navbar';
 
 import { NavbarItems } from './Sidebar.constant';
-import Playlists from './Playlists.component';
+import Playlists from './components/Sidebar.playlists';
+import { useAuth } from 'context/auth-context';
+import SiderbarFooter from './components/Sidebar.footer';
 
-const Container = styled.div`
-  grid-area: sidebar;
-  padding: 25px 10px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledLogo = styled(Link)`
-  padding-left: 15px;
-`;
+import { Container, StyledLogo } from './Sidebar.styles';
 
 export default function Sidebar() {
+  const { user } = useAuth();
+  const { pathname } = useLocation();
   return (
     <Container>
       <StyledLogo to="/">
         <Logo />
       </StyledLogo>
-      <Navbar items={NavbarItems} />
-      <Playlists />
+      <Navbar items={NavbarItems} selected={pathname} />
+      {user && <Playlists />}
+      {!user && <SiderbarFooter />}
     </Container>
   );
 }
