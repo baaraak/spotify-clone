@@ -6,8 +6,8 @@ import Sidebar from './sidebar/Sidebar';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 
-import { FullPageSpinner } from './lib';
 import Home from 'screens/Home';
+import { FullPageSpinner } from './lib';
 
 const Grid = styled.div`
   display: grid;
@@ -16,7 +16,6 @@ const Grid = styled.div`
     'sidebar page'
     'footer footer';
   grid-template-columns: 230px 1fr;
-  grid-template-rows: auto 1fr auto;
   height: 100%;
 `;
 
