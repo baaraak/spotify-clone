@@ -12,6 +12,7 @@ const Banner = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
+  border-top: 1px solid #000;
 `;
 
 const Title = styled.div`
