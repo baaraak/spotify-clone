@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Logo from '../Logo';
+import Logo from '../../components/Logo';
 import { useLocation } from 'react-router-dom';
 
-import Navbar from '../navbar/Navbar';
+import Navbar from '../../components/navbar/Navbar';
 
 import { NavbarItems } from './Sidebar.constant';
 import Playlists from './components/Sidebar.playlists';

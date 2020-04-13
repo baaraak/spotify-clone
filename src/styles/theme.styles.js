@@ -8,4 +8,9 @@ export const theme = {
     text: '#b3b3b3',
   },
   headerHeight: '60px',
+  zIndex: {
+    modal: 100,
+    modalMask: 110,
+    modalContent: 120,
+  },
 };

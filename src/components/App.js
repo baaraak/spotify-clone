@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Sidebar from './sidebar/Sidebar';
-import Header from './header/Header';
-import Footer from './footer/Footer';
+import Sidebar from '../modules/sidebar/Sidebar';
+import Header from '../modules/header/Header';
+import Footer from '../modules/footer/Footer';
 
 import Home from '../screens/Home';
 import Search from '../screens/Search';

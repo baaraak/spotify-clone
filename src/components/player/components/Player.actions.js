@@ -7,14 +7,14 @@ import {
   IoIosRepeat,
 } from 'react-icons/io';
 
-import TrackBar from '../../../components/trackbar/TrackBar';
+import TrackBar from '../../trackbar/TrackBar';
 import {
   PlayerActionsContainer,
   PlayerIcon,
   PlayerIcons,
 } from '../Player.styles';
 
-export default function PlayerActions() {
+export default function PlayerActions({ handlePlay }) {
   return (
     <PlayerActionsContainer>
       <PlayerIcons>
@@ -24,7 +24,7 @@ export default function PlayerActions() {
         <PlayerIcon>
           <IoMdSkipBackward size="16px" />
         </PlayerIcon>
-        <PlayerIcon rounded>
+        <PlayerIcon rounded onClick={handlePlay}>
           <IoIosPlay size="21px" />
         </PlayerIcon>
         <PlayerIcon>
