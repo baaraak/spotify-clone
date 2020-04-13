@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../../components/button/Button';
 
 const Banner = styled.div`
   padding: 10px 30px;
@@ -23,13 +24,10 @@ const Text = styled.div`
   font-size: 15px;
 `;
 
-const Button = styled.div`
-  background: ${props => props.theme.colors.white};
+const CustomButton = styled(Button)`
   color: ${props => props.theme.colors.blue};
-  font-weight: 500;
   font-size: 15px;
-  padding: 10px 55px;
-  border-radius: 500px;
+  padding: 10px 45px;
 `;
 
 export default function SignupPreviewBanner(params) {
@@ -42,7 +40,7 @@ export default function SignupPreviewBanner(params) {
           credit card needed
         </Text>
       </div>
-      <Button>SIGN UP FREE</Button>
+      <CustomButton>SIGN UP FREE</CustomButton>
     </Banner>
   );
 }

@@ -9,12 +9,18 @@ import {
   ListItem,
   Account,
   H2,
+  ModalActions,
+  Button,
 } from './AuthenticateModal.styles';
 import { IoMdCheckmark } from 'react-icons/io';
 
-export default function AuthenticateModal({ isOpen, onClose }) {
+export default function AuthenticateModal({
+  isOpen,
+  onClose,
+  type = 'default',
+}) {
   return (
-    <Modal isOpen={true || isOpen} onClose={onClose}>
+    <Modal isOpen={false || isOpen} onClose={onClose}>
       <AuthModal>
         <ModalInfo>
           <H2>Start listening with a free Spotify account</H2>
@@ -34,12 +40,13 @@ export default function AuthenticateModal({ isOpen, onClose }) {
           </List>
           <Close>CLOSE</Close>
         </ModalInfo>
-
-        <div className="modalActions">
-          <button>SIGN UP FREE</button>
-          <div className="DIVIDER" />
-          <Account>ALREADY HAVE AN ACCOUNT?</Account>
-          <button>LOG IN</button>
+        <div>
+          <ModalActions>
+            <Button>SIGN UP FREE</Button>
+            <div className="DIVIDER" />
+            <Account>ALREADY HAVE AN ACCOUNT?</Account>
+            <Button>LOG IN</Button>
+          </ModalActions>
         </div>
       </AuthModal>
     </Modal>

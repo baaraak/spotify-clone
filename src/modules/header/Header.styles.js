@@ -35,26 +35,3 @@ export const AuthenticateActions = styled.div`
   margin-left: auto;
   display: flex;
 `;
-
-export const Button = styled.div`
-  margin-right: 15px;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 500px;
-  font-weight: 600;
-  color: #fff;
-  transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
-  padding: 12px 40px;
-  cursor: pointer;
-  text-align: center;
-
-  &:last-child {
-    background: #fff;
-    color: ${props => props.theme.colors.mainBlackDark};
-  }
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;

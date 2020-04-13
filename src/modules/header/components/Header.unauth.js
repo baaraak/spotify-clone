@@ -1,11 +1,12 @@
 import React from 'react';
-import { AuthenticateActions, Button } from '../Header.styles';
+import { AuthenticateActions } from '../Header.styles';
+import Button from '../../../components/button/Button';
 
 export default function UnAuthHeader() {
   return (
     <AuthenticateActions>
-      <Button>Sign up</Button>
-      <Button color="white">Log in</Button>
+      <Button filled={false}>SIGN UP</Button>
+      <Button>LOG IN</Button>
     </AuthenticateActions>
   );
 }
