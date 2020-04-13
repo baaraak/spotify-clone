@@ -16,7 +16,6 @@ export const List = styled.div`
 `;
 
 export const ListItem = styled.div`
-disp[lay]
   font-size: 15px;
   margin-bottom: 15px;
   svg {
