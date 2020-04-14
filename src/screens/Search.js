@@ -1,13 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 import { GridPageContainer } from 'styles/page.styles';
-
-const Container = styled.div`
-  grid-area: page;
-  background: green;
-  overflow: hidden;
-  overflow-y: scroll;
-`;
 
 export default function Search() {
   return (
