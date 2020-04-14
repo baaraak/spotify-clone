@@ -83,4 +83,5 @@ export const Account = styled.div`
   font-size: 12px;
   color: ${props => props.theme.colors.mainBlackDark};
   margin-bottom: 10px;
+  font-weight: 500;
 `;
