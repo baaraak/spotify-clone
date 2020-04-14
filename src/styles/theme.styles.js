@@ -4,10 +4,11 @@ export const theme = {
     mainBlackDark: '#030303',
     mainBlackLight: '#121212',
     blue: '#5594ef',
+    green: '#1db954',
     gray: '#282828',
     text: '#b3b3b3',
   },
-  headerHeight: '60px',
+  headerHeight: 60,
   zIndex: {
     modal: 100,
     modalMask: 110,

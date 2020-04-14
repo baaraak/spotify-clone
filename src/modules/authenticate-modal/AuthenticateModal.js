@@ -38,10 +38,14 @@ export default function AuthenticateModal({ isOpen, onClose }) {
         </ModalInfo>
         <div>
           <ModalActions>
-            <Button>SIGN UP FREE</Button>
+            <Button fullWidth color="secondary">
+              SIGN UP FREE
+            </Button>
             <div className="DIVIDER" />
             <Account>ALREADY HAVE AN ACCOUNT?</Account>
-            <Button>LOG IN</Button>
+            <Button fullWidth color="primary">
+              LOG IN
+            </Button>
           </ModalActions>
         </div>
       </AuthModal>

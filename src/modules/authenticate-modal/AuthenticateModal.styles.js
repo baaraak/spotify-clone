@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import AuthModalBG from '../../images/auth-modal-bg.jpg';
+import AuthModalBG from 'images/auth-modal-bg.jpg';
+import ButtonComponent from 'components/button/Button';
 
 export const AuthModal = styled.div`
   background: url(${AuthModalBG}) center center no-repeat;
@@ -58,19 +59,7 @@ export const ModalActions = styled.div`
   margin-left: 15px;
 `;
 
-export const Button = styled.div`
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  border-radius: 500px;
-  font-weight: 600;
-  transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
-  padding: 12px 40px;
-  cursor: pointer;
-  text-align: center;
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
+export const Button = styled(ButtonComponent)``;
 
 export const Divider = styled.div``;
 

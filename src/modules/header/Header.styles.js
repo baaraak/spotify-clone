@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from 'components/button/Button';
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ export const Container = styled.div`
   grid-area: header;
   position: sticky;
   background: rgba(0, 0, 0, 0.3);
-  height: ${props => props.theme.headerHeight};
+  height: ${props => props.theme.headerHeight}px;
   padding: 0 25px;
 `;
 
@@ -34,4 +35,13 @@ export const NavigationIcon = styled.span`
 export const AuthenticateActions = styled.div`
   margin-left: auto;
   display: flex;
+`;
+
+export const ButtonLogin = styled(Button)`
+  background: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.mainBlackDark};
+`;
+
+export const ButtonSignup = styled(Button)`
+  border: none;
 `;

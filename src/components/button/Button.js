@@ -7,9 +7,17 @@ export default function Button({
   children,
   filled = true,
   className,
+  color = 'default',
+  fullWidth = false,
 }) {
   return (
-    <ButtonContainer className={className} filled={filled} outlined={outlined}>
+    <ButtonContainer
+      color={color}
+      fullWidth={fullWidth}
+      className={className}
+      filled={filled}
+      outlined={outlined}
+    >
       {children}
     </ButtonContainer>
   );
