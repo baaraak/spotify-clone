@@ -18,23 +18,23 @@ export default function PlayerActions({ handlePlay }) {
   return (
     <PlayerActionsContainer>
       <PlayerIcons>
-        <PlayerIcon>
+        <PlayerIcon onClick={handlePlay}>
           <IoIosShuffle size="21px" />
         </PlayerIcon>
-        <PlayerIcon>
+        <PlayerIcon onClick={handlePlay}>
           <IoMdSkipBackward size="16px" />
         </PlayerIcon>
         <PlayerIcon rounded onClick={handlePlay}>
           <IoIosPlay size="21px" />
         </PlayerIcon>
-        <PlayerIcon>
+        <PlayerIcon onClick={handlePlay}>
           <IoMdSkipForward size="16px" />
         </PlayerIcon>
-        <PlayerIcon>
+        <PlayerIcon onClick={handlePlay}>
           <IoIosRepeat size="21px" />
         </PlayerIcon>
       </PlayerIcons>
-      <TrackBar />
+      <TrackBar onClick={handlePlay} />
     </PlayerActionsContainer>
   );
 }

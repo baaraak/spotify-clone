@@ -9,6 +9,8 @@ import Footer from '../modules/footer/Footer';
 import Home from '../screens/Home';
 import Search from '../screens/Search';
 import Spinner from './Spinner';
+import Library from 'screens/Library';
+import PrivateRoute from 'modules/routes/PrivateRoute';
 
 const Grid = styled.div`
   display: grid;
@@ -43,6 +45,9 @@ function Routes() {
       <Route path="/search">
         <Search />
       </Route>
+      <PrivateRoute path="/library">
+        <Library />
+      </PrivateRoute>
     </Switch>
   );
 }

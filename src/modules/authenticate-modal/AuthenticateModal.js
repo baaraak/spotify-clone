@@ -14,11 +14,7 @@ import {
 } from './AuthenticateModal.styles';
 import { IoMdCheckmark } from 'react-icons/io';
 
-export default function AuthenticateModal({
-  isOpen,
-  onClose,
-  type = 'default',
-}) {
+export default function AuthenticateModal({ isOpen, onClose }) {
   return (
     <Modal isOpen={false || isOpen} onClose={onClose}>
       <AuthModal>

@@ -34,7 +34,7 @@ export const ModalMask = styled.div``;
 
 export const ModalChildren = styled.div`
   animation: ${ModalContentAnimation} 0.3s forwards;
-  animation-delay: 0.3s;
-  transform: translateY(100px);
+  animation-delay: 0.2s;
+  transform: translateY(50px);
   opacity: 0;
 `;

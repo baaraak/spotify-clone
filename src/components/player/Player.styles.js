@@ -18,7 +18,7 @@ export const PlayerIcons = styled.div`
 export const PlayerIcon = styled.span`
   margin: 0 10px;
   color: ${props => props.theme.colors.text};
-  transition: all 0.2s ease-in;
+  transition: all 0.1s ease-in;
   width: 30px;
   height: 30px;
   display: flex;
@@ -33,7 +33,10 @@ export const PlayerIcon = styled.span`
     props.rounded &&
     `
     border-radius: 50%;
-    border: 1px solid ` + props.theme.colors.text}
+    border: 1px solid ` + props.theme.colors.text};
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const TrackBar = styled.div``;

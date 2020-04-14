@@ -23,6 +23,7 @@ export const ListItem = styled.div`
 
   svg {
     margin-right: 10px;
+    font-size: 17px;
   }
 `;
 

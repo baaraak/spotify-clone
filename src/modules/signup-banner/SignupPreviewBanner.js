@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import Button from '../../components/button/Button';
 
 const Banner = styled.div`
-  padding: 10px 30px;
+  padding: 15px 30px;
   background: linear-gradient(90deg, #af2896, #509bf5);
   position: absolute;
-  bottom: 85px;
   width: 100%;
   height: 75px;
+  margin-top: -81px;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
