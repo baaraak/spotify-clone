@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { AuthProvider } from './auth-context';
-import AppTheme from './theme.context';
+import { AuthProvider } from 'context/auth-context';
+import AppTheme from 'context/theme.context';
 
 function AppProviders({ children }) {
   return (

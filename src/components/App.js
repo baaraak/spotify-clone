@@ -1,16 +1,13 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Sidebar from '../modules/sidebar/Sidebar';
-import Header from '../modules/header/Header';
-import Footer from '../modules/footer/Footer';
+import Sidebar from 'modules/sidebar/Sidebar';
+import Header from 'modules/header/Header';
+import Footer from 'modules/footer/Footer';
 
-import Home from '../screens/Home';
-import Search from '../screens/Search';
-import Spinner from './Spinner';
-import Library from 'screens/Library';
-import PrivateRoute from 'modules/routes/PrivateRoute';
+import Routes from 'modules/routes';
+
+import Spinner from 'components/Spinner';
 
 const Grid = styled.div`
   display: grid;
@@ -23,7 +20,7 @@ const Grid = styled.div`
   height: 100%;
 `;
 
-function App() {
+export default function App() {
   return (
     <React.Suspense fallback={<Spinner />}>
       <Grid>
@@ -35,21 +32,3 @@ function App() {
     </React.Suspense>
   );
 }
-
-function Routes() {
-  return (
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/search">
-        <Search />
-      </Route>
-      <PrivateRoute path="/library">
-        <Library />
-      </PrivateRoute>
-    </Switch>
-  );
-}
-
-export { App };

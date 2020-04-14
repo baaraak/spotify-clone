@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../../components/button/Button';
+import Button from 'components/button/Button';
 
 const Banner = styled.div`
   padding: 15px 30px;

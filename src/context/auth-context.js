@@ -6,7 +6,7 @@ import React from 'react';
 import { bootstrapAppData } from 'utils/bootstrap';
 import * as authClient from 'utils/auth-client';
 import { useAsync } from 'utils/use-async';
-import Spinner from '../components/Spinner';
+import Spinner from 'components/Spinner';
 
 const AuthContext = React.createContext();
 AuthContext.displayName = 'AuthContext';

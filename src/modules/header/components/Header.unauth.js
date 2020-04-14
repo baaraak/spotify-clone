@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthenticateActions } from '../Header.styles';
-import Button from '../../../components/button/Button';
+import Button from 'components/button/Button';
 
 export default function UnAuthHeader() {
   return (

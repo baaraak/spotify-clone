@@ -7,7 +7,7 @@ import {
   IoIosRepeat,
 } from 'react-icons/io';
 
-import TrackBar from '../../trackbar/TrackBar';
+import TrackBar from 'components/trackbar/TrackBar';
 import {
   PlayerActionsContainer,
   PlayerIcon,
