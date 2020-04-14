@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import LogoComponent from 'components/Logo';
+import { GridPageContainer } from 'styles/page.styles';
 
-const Container = styled.div`
+const Container = styled(GridPageContainer)`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -9,5 +9,5 @@ const Container = styled.div`
 `;
 
 export default function Signup() {
-  return <div>signup</div>;
+  return <Container>signup</Container>;
 }

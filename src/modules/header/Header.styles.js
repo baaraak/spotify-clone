@@ -9,6 +9,7 @@ export const Container = styled.div`
   background: rgba(0, 0, 0, 0.3);
   height: ${props => props.theme.headerHeight}px;
   padding: 0 25px;
+  z-index: ${props => props.theme.zIndex.header};
 `;
 
 export const Nav = styled.div`

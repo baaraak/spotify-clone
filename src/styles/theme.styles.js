@@ -10,6 +10,7 @@ export const theme = {
   },
   headerHeight: 60,
   zIndex: {
+    header: 10,
     modal: 100,
     modalMask: 110,
     modalContent: 120,

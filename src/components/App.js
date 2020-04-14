@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Switch, Route } from 'react-router-dom';
 
 import Sidebar from 'modules/sidebar/Sidebar';
 import Header from 'modules/header/Header';
@@ -7,7 +8,7 @@ import Footer from 'modules/footer/Footer';
 
 import Routes from 'modules/routes';
 
-import Spinner from 'components/Spinner';
+import Spinner from './Spinner';
 
 const Grid = styled.div`
   display: grid;
@@ -26,7 +27,21 @@ export default function App() {
       <Grid>
         <Sidebar />
         <Header />
-        <Routes />
+        <Switch>
+          {Routes.map(route => {
+            const RouteComponent = route.auth ?? Route;
+            const ChildRoute = route.component;
+            return (
+              <RouteComponent
+                key={route.id}
+                path={route.path}
+                exact={route.exact}
+              >
+                <ChildRoute />
+              </RouteComponent>
+            );
+          })}
+        </Switch>
         <Footer />
       </Grid>
     </React.Suspense>

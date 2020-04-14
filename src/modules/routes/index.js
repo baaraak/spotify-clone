@@ -10,27 +10,39 @@ import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import NotFound from 'screens/NotFound';
 
-export default function Routes() {
-  return (
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/search">
-        <Search />
-      </Route>
-      <RestrictedRoute path="/login">
-        <Login />
-      </RestrictedRoute>
-      <RestrictedRoute path="/signup">
-        <Signup />
-      </RestrictedRoute>
-      <PrivateRoute path="/library">
-        <Library />
-      </PrivateRoute>
-      <Route>
-        <NotFound />
-      </Route>
-    </Switch>
-  );
-}
+export default [
+  {
+    exact: true,
+    id: 'home',
+    path: '/',
+    component: Home,
+  },
+  {
+    id: 'search',
+    path: '/search',
+    component: Search,
+  },
+  {
+    id: 'library',
+    path: '/library',
+    component: Library,
+    auth: PrivateRoute,
+  },
+  {
+    id: 'signup',
+    path: '/signup',
+    component: Signup,
+    auth: RestrictedRoute,
+  },
+  {
+    id: 'login',
+    path: '/login',
+    component: Login,
+    auth: RestrictedRoute,
+  },
+  {
+    id: 'notFound',
+    path: '*',
+    component: NotFound,
+  },
+];
