@@ -13,21 +13,23 @@ const Banner = styled.div`
   grid-template-columns: 1fr auto;
   align-items: center;
   border-top: 1px solid #000;
+  font-weight: 500;
 `;
 
 const Title = styled.div`
   font-size: 11px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   letter-spacing: 1.2px;
 `;
 
 const Text = styled.div`
-  font-size: 15px;
+  font-size: 14px;
 `;
 
 const CustomButton = styled(Button)`
   color: ${props => props.theme.colors.blue};
-  font-size: 15px;
+  background: ${props => props.theme.colors.white};
+  font-size: 14px;
   padding: 10px 45px;
 `;
 

@@ -13,7 +13,7 @@ export const AuthModal = styled.div`
 `;
 
 export const List = styled.div`
-  margin: 20px 0;
+  margin: 30px 0 20px;
 `;
 
 export const ListItem = styled.div`
@@ -21,6 +21,7 @@ export const ListItem = styled.div`
   margin-bottom: 15px;
   display: flex;
   align-items: center;
+  font-weight: 500;
 
   svg {
     margin-right: 10px;
@@ -30,19 +31,18 @@ export const ListItem = styled.div`
 
 export const H2 = styled.div`
   font-size: 46px;
-  font-weight: 600;
+  font-weight: 700;
 `;
 
 export const Close = styled.div`
   font-size: 12px;
   margin: 15px 0;
-  font-weight: 600;
   display: inline-block;
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease-in;
   cursor: pointer;
-
+  font-weight: 700;
   &:hover {
     border-bottom-color: ${props => props.theme.colors.white};
   }
@@ -59,8 +59,28 @@ export const ModalActions = styled.div`
   margin-left: 15px;
 `;
 
-export const Button = styled(ButtonComponent)``;
+export const ButtonLogin = styled(ButtonComponent)`
+  font-size: 18px;
+  padding: 15px;
+  background: ${props => props.theme.colors.green};
+`;
 
-export const Divider = styled.div``;
+export const ButtonSignup = styled(ButtonComponent)`
+  font-size: 18px;
+  padding: 18px;
+  border: 1px solid ${props => props.theme.colors.mainBlackDark};
+  color: ${props => props.theme.colors.mainBlackDark};
+`;
 
-export const Account = styled.div``;
+export const Divider = styled.div`
+  height: 1px;
+  background: ${props => props.theme.colors.text};
+  margin: 32px 8px 26px;
+`;
+
+export const Account = styled.div`
+  text-align: center;
+  font-size: 12px;
+  color: ${props => props.theme.colors.mainBlackDark};
+  margin-bottom: 10px;
+`;

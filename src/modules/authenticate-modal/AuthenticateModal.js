@@ -10,7 +10,9 @@ import {
   Account,
   H2,
   ModalActions,
-  Button,
+  ButtonLogin,
+  ButtonSignup,
+  Divider,
 } from './AuthenticateModal.styles';
 import { IoMdCheckmark } from 'react-icons/io';
 
@@ -38,14 +40,14 @@ export default function AuthenticateModal({ isOpen, onClose }) {
         </ModalInfo>
         <div>
           <ModalActions>
-            <Button fullWidth color="secondary">
+            <ButtonLogin fullWidth color="secondary">
               SIGN UP FREE
-            </Button>
-            <div className="DIVIDER" />
-            <Account>ALREADY HAVE AN ACCOUNT?</Account>
-            <Button fullWidth color="primary">
+            </ButtonLogin>
+            <Divider />
+            <Account>Already have an account?</Account>
+            <ButtonSignup fullWidth color="primary">
               LOG IN
-            </Button>
+            </ButtonSignup>
           </ModalActions>
         </div>
       </AuthModal>

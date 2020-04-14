@@ -11,10 +11,10 @@ export const NavItemLink = styled(Link)`
   margin-bottom: 5px;
   color: #b3b3b3;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   padding: 7px 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   background: ${({ active, theme }) => (active ? theme.colors.gray : '')};

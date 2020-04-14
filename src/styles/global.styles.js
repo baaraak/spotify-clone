@@ -11,6 +11,8 @@ export default createGlobalStyle`
     height: 100vh;
     background: #030303;
     color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   #root {

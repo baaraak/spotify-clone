@@ -20,9 +20,10 @@ export const Footer = styled.div`
 
 export const FooterLink = styled.a`
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: ${props => props.theme.colors.text};
   margin-bottom: 5px;
+  font-weight: 500;
   padding-bottom: 5px;
   border-bottom: 1px solid transparent;
   cursor: pointer;
