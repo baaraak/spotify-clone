@@ -20,7 +20,6 @@ export default function Footer() {
   const { user } = useAuth();
 
   const toggleAuthModal = () => {
-    console.log('in');
     toggleModal(!isOpen);
   };
 

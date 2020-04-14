@@ -13,5 +13,6 @@ export const theme = {
     modal: 100,
     modalMask: 110,
     modalContent: 120,
+    notFound: 200,
   },
 };

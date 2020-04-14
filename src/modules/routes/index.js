@@ -8,6 +8,7 @@ import Login from 'screens/Login';
 import Signup from 'screens/Signup';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+import NotFound from 'screens/NotFound';
 
 export default function Routes() {
   return (
@@ -27,6 +28,9 @@ export default function Routes() {
       <PrivateRoute path="/library">
         <Library />
       </PrivateRoute>
+      <Route>
+        <NotFound />
+      </Route>
     </Switch>
   );
 }
