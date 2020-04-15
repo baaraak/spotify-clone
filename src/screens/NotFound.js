@@ -8,12 +8,6 @@ const Container = styled(GridPageContainer)`
   align-items: center;
   justify-content: center;
   background: linear-gradient(45deg, #8c1932, #ff6437 60%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: ${props => props.theme.zIndex.notFound};
 `;
 
 const Logo = styled(LogoComponent)`
@@ -29,7 +23,7 @@ const Title = styled.div`
 
 export default function NotFound() {
   return (
-    <Container>
+    <Container fullPage>
       <Logo width="100px" />
       <Title>Sorry, couldn't find that.</Title>
     </Container>

@@ -15,6 +15,7 @@ import {
   Divider,
 } from './AuthenticateModal.styles';
 import { IoMdCheckmark } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 export default function AuthenticateModal({ isOpen, onClose }) {
   return (
@@ -40,14 +41,18 @@ export default function AuthenticateModal({ isOpen, onClose }) {
         </ModalInfo>
         <div>
           <ModalActions>
-            <ButtonLogin fullWidth color="secondary">
-              SIGN UP FREE
-            </ButtonLogin>
+            <Link to="signup" onClick={onClose}>
+              <ButtonLogin fullWidth color="secondary">
+                SIGN UP FREE
+              </ButtonLogin>
+            </Link>
             <Divider />
             <Account>Already have an account?</Account>
-            <ButtonSignup fullWidth color="primary">
-              LOG IN
-            </ButtonSignup>
+            <Link to="login" onClick={onClose}>
+              <ButtonSignup fullWidth color="primary">
+                LOG IN
+              </ButtonSignup>
+            </Link>
           </ModalActions>
         </div>
       </AuthModal>

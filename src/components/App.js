@@ -29,7 +29,7 @@ export default function App() {
         <Header />
         <Switch>
           {Routes.map(route => {
-            const RouteComponent = route.auth ?? Route;
+            const RouteComponent = route.auth || Route;
             const ChildRoute = route.component;
             return (
               <RouteComponent

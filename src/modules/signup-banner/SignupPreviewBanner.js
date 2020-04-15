@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/button/Button';
+import { Link } from 'react-router-dom';
 
 const Banner = styled.div`
   padding: 15px 30px;
@@ -43,7 +44,9 @@ export default function SignupPreviewBanner(params) {
           credit card needed
         </Text>
       </div>
-      <CustomButton>SIGN UP FREE</CustomButton>
+      <Link to="signup">
+        <CustomButton>SIGN UP FREE</CustomButton>
+      </Link>
     </Banner>
   );
 }
