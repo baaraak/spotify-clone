@@ -8,6 +8,7 @@ import LogoComponent from 'components/Logo';
 import Button from 'components/button/Button';
 import InputComponent from 'components/input/Input';
 import CheckboxComponent from 'components/checkbox/Checkbox';
+import { Link } from 'react-router-dom';
 
 const PageContainer = styled(GridPageContainer)`
   background: ${props => props.theme.colors.white};
@@ -69,7 +70,13 @@ const FacebookButton = styled(Button)`
     `}
 `;
 
-const AccountTitle = styled.div``;
+const AccountTitle = styled.div`
+  margin-top: 35px;
+  color: ${props => props.theme.colors.mainBlackDark};
+  font-weight: 600;
+  text-align: center;
+  font-size: 18px;
+`;
 
 const LoginTitle = styled.h4`
   font-size: 14px;
@@ -77,9 +84,25 @@ const LoginTitle = styled.h4`
   text-align: center;
 `;
 
-const SignupButton = styled.div``;
+const SignupButton = styled(Button)`
+  color: #616467;
+  border: 2px solid #616467;
+  margin: 15px 0 35px;
+  padding: 14px 0;
+  font-size: 14px;
+`;
 
-const Copyrights = styled.div``;
+const Copyrights = styled.div`
+  color: ${props => props.theme.colors.text};
+  font-size: 10px;
+  font-weight: 500;
+  margin: 20px 0;
+  text-align: center;
+  a {
+    color: ${props => props.theme.colors.green};
+    text-decoration: none;
+  }
+`;
 
 const FormFooter = styled.div`
   margin: 15px 0;
@@ -95,10 +118,22 @@ const CheckboxLabel = styled.label`
   color: #919496;
 `;
 
-const ForgotPasswordLink = styled.div``;
+const ForgotPasswordLink = styled(Link)`
+  color: ${props => props.theme.colors.green};
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  margin-bottom: 35px;
+
+  &:hover {
+    filter: brightness(115%);
+  }
+`;
 
 const Form = styled.form`
-  margin: 20px 0;
+  margin: 20px 0 0;
   display: flex;
   flex-direction: column;
 `;
@@ -111,13 +146,12 @@ const SubmitButton = styled(Button)`
 `;
 
 export default function Login() {
-  const { register, handleSubmit, errors } = useForm(); // initialise the hook
+  const { register, handleSubmit, errors } = useForm({
+    submitFocusError: false,
+  });
   const onSubmit = data => {
     console.log('in submit', data);
   };
-  console.log('***********************');
-  console.log(errors);
-  console.log('***********************');
   return (
     <PageContainer fullPage>
       <Logo fill="#000" width="190px" />
@@ -163,12 +197,19 @@ export default function Login() {
         <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
         <Line />
         <AccountTitle>Don't have an account?</AccountTitle>
-        <SignupButton>SIGN UP FOR SPOTIFY</SignupButton>
+        <SignupButton fullWidth>SIGN UP FOR SPOTIFY</SignupButton>
         <Line />
         <Copyrights>
           If you click "Log in with Facebook" and are not a Spotify user, you
-          will be registered and you agree to Spotify's Terms & Conditions and
-          Privacy Policy.
+          will be registered and you agree to Spotify's{' '}
+          <a href="/" target="_blank">
+            Terms & Conditions
+          </a>{' '}
+          and{' '}
+          <a href="/" target="_blank">
+            Privacy Policy
+          </a>
+          .
         </Copyrights>
       </ContentContainer>
     </PageContainer>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
 `;
 
 const Icon = styled(IoMdCheckmark)`
@@ -14,8 +15,6 @@ const Icon = styled(IoMdCheckmark)`
   height: 18px;
 `;
 
-// Hide checkbox visually but remain accessible to screen readers.
-// Source: https://polished.js.org/docs/#hidevisually
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
   clip: rect(0 0 0 0);
