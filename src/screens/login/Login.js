@@ -7,6 +7,7 @@ import { GridPageContainer } from 'styles/page.styles';
 import LogoComponent from 'components/Logo';
 import Button from 'components/button/Button';
 import InputComponent from 'components/input/Input';
+import CheckboxComponent from 'components/checkbox/Checkbox';
 
 const PageContainer = styled(GridPageContainer)`
   background: ${props => props.theme.colors.white};
@@ -83,9 +84,16 @@ const Copyrights = styled.div``;
 const FormFooter = styled.div`
   margin: 15px 0;
   color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-const Checkbox = styled.div``;
+const CheckboxLabel = styled.label`
+  font-size: 14px;
+  font-weight: 600;
+  color: #919496;
+`;
 
 const ForgotPasswordLink = styled.div``;
 
@@ -93,6 +101,13 @@ const Form = styled.form`
   margin: 20px 0;
   display: flex;
   flex-direction: column;
+`;
+
+const SubmitButton = styled(Button)`
+  background: ${props => props.theme.colors.green};
+  color: ${props => props.theme.colors.white};
+  padding: 16px 70px;
+  font-size: 15px;
 `;
 
 export default function Login() {
@@ -138,8 +153,11 @@ export default function Login() {
             errorMessage="Please enter your password."
           />
           <FormFooter>
-            <Checkbox checked>Remember me</Checkbox>
-            <input type="submit" />
+            <CheckboxLabel>
+              <CheckboxComponent checked ref={register()} name="rememberMe" />
+              Remember me
+            </CheckboxLabel>
+            <SubmitButton type="submit">LOG IN</SubmitButton>
           </FormFooter>
         </Form>
         <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
