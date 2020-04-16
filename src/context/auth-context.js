@@ -1,7 +1,3 @@
-/** @jsx jsx */
-/** @jsxFrag React.Fragment */
-import { jsx } from '@emotion/core';
-
 import React from 'react';
 import { bootstrapAppData } from 'utils/bootstrap';
 import * as authClient from 'utils/auth-client';
