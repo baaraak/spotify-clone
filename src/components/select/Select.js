@@ -52,7 +52,6 @@ const Error = styled.div`
 
 export default React.forwardRef(function Select(
   {
-    type = 'text',
     placeholder,
     value,
     onChange,

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import Button from 'components/button/Button';
 import Select from 'components/select/Select';
+import RadioButtonComponent from 'components/radio-button/RadioButton';
 import CheckboxComponent from 'components/checkbox/Checkbox';
 import { Link } from 'react-router-dom';
 import {
@@ -36,7 +37,7 @@ const AccountTitle = styled.div`
 `;
 
 const Copyrights = styled.div`
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.theme.colors.mainBlackDark};
   font-size: 10px;
   font-weight: 500;
   margin: 20px 0;
@@ -47,23 +48,29 @@ const Copyrights = styled.div`
   }
 `;
 
-const CheckboxLabel = styled.label`
-  font-size: 14px;
-  font-weight: 600;
-  color: #919496;
+const CopyrightsTerms = styled.div`
+  margin-bottom: 20px;
 `;
 
-const ForgotPasswordLink = styled(Link)`
-  color: ${props => props.theme.colors.green};
+const CheckboxLabel = styled.label`
+  font-size: 14px;
+  font-weight: 500;
+  color: #919496;
+  margin-bottom: 20px;
+`;
+
+const ForgotPasswordLink = styled.div`
+  color: ${props => props.theme.colors.mainBlackDark};
   font-weight: 500;
   font-size: 14px;
   text-align: center;
   display: block;
   text-decoration: none;
-  margin-bottom: 35px;
+  margin: 20px 0;
 
-  &:hover {
-    filter: brightness(115%);
+  a {
+    color: ${props => props.theme.colors.green};
+    text-decoration: none;
   }
 `;
 
@@ -88,18 +95,13 @@ const BirthDateLabel = styled.div`
   font-weight: 500;
 `;
 
-const Gender = styled(Button)`
-  background: ${props => props.theme.colors.green};
-  color: ${props => props.theme.colors.white};
-  padding: 16px 70px;
-  font-size: 15px;
+const Gender = styled.div`
+  display: flex;
+  margin: 15px 0 25px;
 `;
 
-const RadioButton = styled.div`
-  background: ${props => props.theme.colors.green};
-  color: ${props => props.theme.colors.white};
-  padding: 16px 70px;
-  font-size: 15px;
+const RadioButton = styled(RadioButtonComponent)`
+  margin-right: 25px;
 `;
 
 export default function Signup() {
@@ -192,16 +194,17 @@ export default function Signup() {
             Please send me Spotify marketing messages.
           </CheckboxLabel>
           <CheckboxLabel>
-            <CheckboxComponent checked ref={register()} name="marketing" />
+            <CheckboxComponent ref={register()} name="marketing" />
             Share my registration data with Spotify's content providers for
             marketing purposes.
           </CheckboxLabel>
           <Copyrights>
-            By clicking on Sign up, you agree to Spotify's{' '}
-            <a href="/" target="_blank">
-              Terms and Conditions of Use.
-            </a>
-            <br />
+            <CopyrightsTerms>
+              By clicking on Sign up, you agree to Spotify's{' '}
+              <a href="/" target="_blank">
+                Terms and Conditions of Use.
+              </a>
+            </CopyrightsTerms>
             To learn more about how Spotify collects, uses, shares and protects
             your personal data please read Spotify's{' '}
             <a href="/" target="_blank">

@@ -159,7 +159,9 @@ export default function Login() {
         <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
         <Line />
         <AccountTitle>Don't have an account?</AccountTitle>
-        <SignupButton fullWidth>SIGN UP FOR SPOTIFY</SignupButton>
+        <Link to="/signup">
+          <SignupButton fullWidth>SIGN UP FOR SPOTIFY</SignupButton>
+        </Link>
         <Line />
         <Copyrights>
           If you click "Log in with Facebook" and are not a Spotify user, you
