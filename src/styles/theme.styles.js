@@ -9,7 +9,7 @@ export const theme = {
     lightGray: '#d9dadc',
     text: '#88898c',
     facebook: '#3a61b3',
-    red: '#eb1e32',
+    red: '#bd3200',
   },
   headerHeight: 60,
   zIndex: {

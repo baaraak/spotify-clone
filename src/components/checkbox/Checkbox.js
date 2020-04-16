@@ -15,7 +15,7 @@ const Icon = styled(IoMdCheckmark)`
   height: 18px;
 `;
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const HiddenCheckbox = styled.input`
   border: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);
@@ -48,12 +48,15 @@ const StyledCheckbox = styled.div`
 `;
 
 export default React.forwardRef(
-  ({ className, checked = false, ...props }, ref) => {
+  ({ className, name, checked = false, ...props }, ref) => {
     const [isCheck, setChecked] = useState(checked);
     return (
       <CheckboxContainer className={className} ref={ref}>
         <HiddenCheckbox
+          name={name}
           checked={isCheck}
+          type="checkbox"
+          ref={ref}
           onChange={() => setChecked(!isCheck)}
         />
         <StyledCheckbox checked={isCheck}>

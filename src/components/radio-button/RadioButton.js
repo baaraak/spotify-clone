@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const RadioButtonContainer = styled.div`
@@ -16,13 +16,9 @@ const Label = styled.label`
 `;
 
 export default React.forwardRef(function RadioButton(
-  { placeholder, value, label, onChange, name, error, errorMessage, className },
+  { placeholder, value, label, name, error, errorMessage, className },
   ref,
 ) {
-  const [v, setValue] = useState(value || '');
-  const handleChange = e => {
-    setValue(e.target.value);
-  };
   return (
     <RadioButtonContainer className={className}>
       <RadioButtonElement
@@ -30,9 +26,8 @@ export default React.forwardRef(function RadioButton(
         error={error}
         type="radio"
         placeholder={placeholder}
-        value={v}
-        onChange={handleChange}
         id={value}
+        value={value}
         name={name}
       />
       <Label htmlFor={value}>{label}</Label>

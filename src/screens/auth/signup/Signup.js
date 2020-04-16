@@ -13,9 +13,11 @@ import {
   Divider,
   Form,
   Logo,
+  SubmitButton,
   ContentContainer,
   PageContainer,
 } from '../auth.styles';
+import { Error } from 'styles/common.styles';
 import { months } from 'utils/months';
 
 const FacebookButton = styled(Button)`
@@ -74,13 +76,6 @@ const ForgotPasswordLink = styled.div`
   }
 `;
 
-const SubmitButton = styled(Button)`
-  background: ${props => props.theme.colors.green};
-  color: ${props => props.theme.colors.white};
-  padding: 16px 70px;
-  font-size: 15px;
-`;
-
 const BirthDate = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -98,10 +93,13 @@ const BirthDateLabel = styled.div`
 const Gender = styled.div`
   display: flex;
   margin: 15px 0 25px;
+  flex-wrap: wrap;
 `;
 
 const RadioButton = styled(RadioButtonComponent)`
-  margin-right: 25px;
+  margin-right: 5px;
+  flex: 0 0 20%;
+  white-space: nowrap;
 `;
 
 export default function Signup() {
@@ -131,7 +129,7 @@ export default function Signup() {
             placeholder="Email"
             ref={register({ required: true })}
             error={errors.email}
-            errorMessage="Please enter your Spotify username or email address."
+            errorMessage="Please enter your email."
           />
           <Input
             name="confirmEmail"
@@ -139,7 +137,7 @@ export default function Signup() {
             placeholder="Confirm email"
             ref={register({ required: true })}
             error={errors.email}
-            errorMessage="Please enter your Spotify username or email address."
+            errorMessage="Please enter your email."
           />
           <Input
             name="password"
@@ -147,14 +145,14 @@ export default function Signup() {
             placeholder="Password"
             ref={register({ required: true })}
             error={errors.password}
-            errorMessage="Please enter your password."
+            errorMessage="Enter a password to continue."
           />
           <Input
             name="name"
             placeholder="What should we call you?"
             ref={register({ required: true })}
-            error={errors.password}
-            errorMessage="Please enter your password."
+            error={errors.name}
+            errorMessage="What should we call you?"
           />
           <BirthDate>
             <BirthDateLabel>Date of birth</BirthDateLabel>
@@ -162,15 +160,15 @@ export default function Signup() {
               name="day"
               placeholder="Day"
               ref={register({ required: true })}
-              error={errors.password}
-              errorMessage="Please enter your password."
+              error={errors.day}
+              errorMessage="Please enter a valid day of the month."
             />
             <Select
               name="month"
               placeholder="Month"
               ref={register({ required: true })}
-              error={errors.password}
-              errorMessage="Please enter your password."
+              error={errors.month}
+              errorMessage="Please enter your birth month."
               options={[
                 { value: -1, label: 'Month' },
                 ...months.map((m, i) => ({ value: i, label: m })),
@@ -180,21 +178,37 @@ export default function Signup() {
               name="year"
               placeholder="Year"
               ref={register({ required: true })}
-              error={errors.password}
-              errorMessage="Please enter your password."
+              error={errors.year}
+              errorMessage="Please enter a valid year."
             />
           </BirthDate>
           <Gender>
-            <RadioButton label="Male" name="gender" value="male" />
-            <RadioButton label="Female" name="gender" value="female" />
-            <RadioButton label="Non-binary" name="gender" value="non-binary" />
+            <RadioButton
+              ref={register({ required: true })}
+              label="Male"
+              name="gender"
+              value="male"
+            />
+            <RadioButton
+              ref={register({ required: true })}
+              label="Female"
+              name="gender"
+              value="female"
+            />
+            <RadioButton
+              ref={register({ required: true })}
+              label="Non-binary"
+              name="gender"
+              value="non-binary"
+            />
+            {errors.gender && <Error>Please indicate your gender.</Error>}
           </Gender>
           <CheckboxLabel>
-            <CheckboxComponent ref={register()} name="subscription" />
+            <CheckboxComponent ref={register} name="subscription" />
             Please send me Spotify marketing messages.
           </CheckboxLabel>
           <CheckboxLabel>
-            <CheckboxComponent ref={register()} name="marketing" />
+            <CheckboxComponent ref={register} name="marketing" />
             Share my registration data with Spotify's content providers for
             marketing purposes.
           </CheckboxLabel>

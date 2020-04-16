@@ -15,6 +15,7 @@ import {
   Logo,
   ContentContainer,
   PageContainer,
+  SubmitButton,
 } from '../auth.styles';
 
 const FacebookButton = styled(Button)`
@@ -100,13 +101,6 @@ const ForgotPasswordLink = styled(Link)`
   }
 `;
 
-const SubmitButton = styled(Button)`
-  background: ${props => props.theme.colors.green};
-  color: ${props => props.theme.colors.white};
-  padding: 16px 70px;
-  font-size: 15px;
-`;
-
 export default function Login() {
   const { register, handleSubmit, errors } = useForm({
     submitFocusError: false,
@@ -150,13 +144,15 @@ export default function Login() {
           />
           <FormFooter>
             <CheckboxLabel>
-              <CheckboxComponent checked ref={register()} name="rememberMe" />
+              <CheckboxComponent checked ref={register} name="rememberMe" />
               Remember me
             </CheckboxLabel>
             <SubmitButton type="submit">LOG IN</SubmitButton>
           </FormFooter>
         </Form>
-        <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
+        <ForgotPasswordLink to="/forgot">
+          Forgot your password?
+        </ForgotPasswordLink>
         <Line />
         <AccountTitle>Don't have an account?</AccountTitle>
         <Link to="/signup">

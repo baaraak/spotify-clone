@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
+import { Error } from 'styles/common.styles';
 
 const InputContainer = styled.div``;
 
@@ -28,30 +29,10 @@ const InputElement = styled.input`
     `}
 `;
 
-const Error = styled.div`
-  margin: 5px 0;
-  font-weight: 500;
-  font-size: 15px;
-  color: ${props => props.theme.colors.red};
-`;
-
 export default React.forwardRef(function Input(
-  {
-    type = 'text',
-    placeholder,
-    value,
-    onChange,
-    name,
-    error,
-    errorMessage,
-    className,
-  },
+  { type = 'text', placeholder, value, name, error, errorMessage, className },
   ref,
 ) {
-  const [v, setValue] = useState(value || '');
-  const handleChange = e => {
-    setValue(e.target.value);
-  };
   return (
     <InputContainer className={className}>
       <InputElement
@@ -59,8 +40,6 @@ export default React.forwardRef(function Input(
         error={error}
         type={type}
         placeholder={placeholder}
-        value={v}
-        onChange={handleChange}
         name={name}
       />
       {error && <Error>{errorMessage}</Error>}

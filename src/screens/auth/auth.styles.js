@@ -1,6 +1,7 @@
 import { GridPageContainer } from 'styles/page.styles';
 import LogoComponent from 'components/Logo';
 import InputComponent from 'components/input/Input';
+import Button from 'components/button/Button';
 import styled from 'styled-components';
 
 export const PageContainer = styled(GridPageContainer)`
@@ -47,4 +48,11 @@ export const Divider = styled.div`
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   grid-gap: 30px;
+`;
+
+export const SubmitButton = styled(Button)`
+  background: ${props => props.theme.colors.green};
+  color: ${props => props.theme.colors.white};
+  padding: 16px 70px;
+  font-size: 15px;
 `;

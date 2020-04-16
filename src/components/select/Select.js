@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { AiOutlineDown } from 'react-icons/ai';
+import { Error } from 'styles/common.styles';
 
 const SelectContainer = styled.div`
   position: relative;
@@ -43,13 +44,6 @@ const Icon = styled(AiOutlineDown)`
   font-size: 18px;
 `;
 
-const Error = styled.div`
-  margin: 5px 0;
-  font-weight: 500;
-  font-size: 15px;
-  color: ${props => props.theme.colors.red};
-`;
-
 export default React.forwardRef(function Select(
   {
     placeholder,
@@ -63,18 +57,13 @@ export default React.forwardRef(function Select(
   },
   ref,
 ) {
-  const [v, setValue] = useState(value || '');
-  const handleChange = e => {
-    setValue(e.target.value);
-  };
   return (
     <SelectContainer className={className}>
       <SelectElement
         ref={ref}
         error={error}
         placeholder={placeholder}
-        value={v}
-        onChange={handleChange}
+        value={value}
         name={name}
       >
         {options.map(o => (
