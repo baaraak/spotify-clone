@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { AiOutlineDown } from 'react-icons/ai';
 
-const InputContainer = styled.div``;
+const SelectContainer = styled.div`
+  position: relative;
+`;
 
-const InputElement = styled.input`
+const SelectElement = styled.select`
   width: 100%;
   height: 40px;
   padding: 6px 12px;
@@ -11,7 +14,9 @@ const InputElement = styled.input`
   font-size: 14px;
   font-weight: 500;
   border: 1px solid ${props => props.theme.colors.lightGray};
-
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
   &:focus {
     border: 1px solid ${props => props.theme.colors.text};
     outline: none;
@@ -28,6 +33,16 @@ const InputElement = styled.input`
     `}
 `;
 
+const Icon = styled(AiOutlineDown)`
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  /* fill: #000; */
+  color: #000;
+  z-index: 5;
+  font-size: 18px;
+`;
+
 const Error = styled.div`
   margin: 5px 0;
   font-weight: 500;
@@ -35,7 +50,7 @@ const Error = styled.div`
   color: ${props => props.theme.colors.red};
 `;
 
-export default React.forwardRef(function Input(
+export default React.forwardRef(function Select(
   {
     type = 'text',
     placeholder,
@@ -44,6 +59,7 @@ export default React.forwardRef(function Input(
     name,
     error,
     errorMessage,
+    options,
     className,
   },
   ref,
@@ -53,17 +69,23 @@ export default React.forwardRef(function Input(
     setValue(e.target.value);
   };
   return (
-    <InputContainer className={className}>
-      <InputElement
+    <SelectContainer className={className}>
+      <SelectElement
         ref={ref}
         error={error}
-        type={type}
         placeholder={placeholder}
         value={v}
         onChange={handleChange}
         name={name}
-      />
+      >
+        {options.map(o => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </SelectElement>
+      <Icon />
       {error && <Error>{errorMessage}</Error>}
-    </InputContainer>
+    </SelectContainer>
   );
 });

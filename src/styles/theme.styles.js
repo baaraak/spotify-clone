@@ -7,7 +7,7 @@ export const theme = {
     green: '#1db954',
     gray: '#282828',
     lightGray: '#d9dadc',
-    text: '#b3b3b3',
+    text: '#88898c',
     facebook: '#3a61b3',
     red: '#eb1e32',
   },
