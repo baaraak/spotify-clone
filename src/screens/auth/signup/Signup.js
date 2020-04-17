@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 
@@ -14,11 +14,13 @@ import {
   Form,
   Logo,
   SubmitButton,
+  ErrorContainer,
   ContentContainer,
   PageContainer,
 } from '../auth.styles';
 import { Error } from 'styles/common.styles';
 import { months } from 'utils/months';
+import { useFirebase } from 'context/firebase.context';
 
 const FacebookButton = styled(Button)`
   color: ${props => props.theme.colors.white};
@@ -103,11 +105,18 @@ const RadioButton = styled(RadioButtonComponent)`
 `;
 
 export default function Signup() {
+  const { signup } = useFirebase();
   const { register, handleSubmit, errors } = useForm({
     submitFocusError: false,
   });
+  const [error, setError] = useState();
   const onSubmit = data => {
-    console.log('in submit', data);
+    setError(null);
+    signup(data)
+      .then(result => {})
+      .catch(e => {
+        setError(e.message);
+      });
   };
   return (
     <PageContainer fullPage>
@@ -121,7 +130,7 @@ export default function Signup() {
           <Line />
         </Divider>
         <AccountTitle>Sign up with your email address</AccountTitle>
-
+        {error && <ErrorContainer>{error}</ErrorContainer>}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Input
             name="email"

@@ -56,3 +56,12 @@ export const SubmitButton = styled(Button)`
   padding: 16px 70px;
   font-size: 15px;
 `;
+
+export const ErrorContainer = styled.div`
+  background: ${props => props.theme.colors.red};
+  margin-top: 10px;
+  padding: 15px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+`;

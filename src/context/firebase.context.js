@@ -28,14 +28,11 @@ export function FirebaseProvider(props) {
 
   const loginLocal = ({ email, password }) =>
     app.auth().signInWithEmailAndPassword(email, password);
-  const register = ({ email, password }) =>
+  const signup = ({ email, password }) =>
     app.auth().createUserWithEmailAndPassword(email, password);
 
   return (
-    <FirebaseContext.Provider
-      value={{ user, loginLocal, register }}
-      {...props}
-    />
+    <FirebaseContext.Provider value={{ user, loginLocal, signup }} {...props} />
   );
 }
 

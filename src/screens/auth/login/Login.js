@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { FaApple, FaFacebook } from 'react-icons/fa';
@@ -16,7 +16,9 @@ import {
   ContentContainer,
   PageContainer,
   SubmitButton,
+  ErrorContainer,
 } from '../auth.styles';
+import { useFirebase } from 'context/firebase.context';
 
 const FacebookButton = styled(Button)`
   color: ${props => props.theme.colors.white};
@@ -102,11 +104,20 @@ const ForgotPasswordLink = styled(Link)`
 `;
 
 export default function Login() {
+  const { loginLocal } = useFirebase();
   const { register, handleSubmit, errors } = useForm({
     submitFocusError: false,
   });
+  const [error, setError] = useState();
+
   const onSubmit = data => {
     console.log('in submit', data);
+    setError(null);
+    loginLocal(data)
+      .then(result => {})
+      .catch(e => {
+        setError(e.message);
+      });
   };
   return (
     <PageContainer fullPage>
@@ -126,13 +137,15 @@ export default function Login() {
           OR
           <Line />
         </Divider>
+        {error && <ErrorContainer>{error}</ErrorContainer>}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Input
             name="email"
-            placeholder="Email address or username"
+            type="email"
+            placeholder="Email address"
             ref={register({ required: true })}
             error={errors.email}
-            errorMessage="Please enter your Spotify username or email address."
+            errorMessage="Please enter your Spotify email address."
           />
           <Input
             name="password"
