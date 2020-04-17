@@ -9,6 +9,7 @@ import Footer from 'modules/footer/Footer';
 import Routes from 'modules/routes';
 
 import Spinner from './Spinner';
+import useUser from 'context/useUser';
 
 const Grid = styled.div`
   display: grid;
@@ -22,6 +23,7 @@ const Grid = styled.div`
 `;
 
 export default function App() {
+  const user = useUser();
   return (
     <React.Suspense fallback={<Spinner />}>
       <Grid>

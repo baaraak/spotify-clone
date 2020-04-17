@@ -4,11 +4,10 @@ import { Container } from './Header.styles';
 import HeaderNav from './components/Header.nav';
 import AuthHeader from './components/Header.auth';
 import UnAuthHeader from './components/Header.unauth';
-
-import { useAuth } from 'context/auth.context';
+import { useFirebase } from 'context/firebase.context';
 
 export default function Header() {
-  const { user } = useAuth();
+  const { user } = useFirebase();
   return (
     <Container>
       <HeaderNav />
