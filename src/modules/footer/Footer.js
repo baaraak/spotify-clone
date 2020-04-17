@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Player from 'components/player/Player';
-import { useAuth } from 'context/auth-context';
+import { useAuth } from 'context/auth.context';
 import SignupPreviewBanner from 'modules/signup-banner/SignupPreviewBanner';
 import AuthenticateModal from 'modules/authenticate-modal/AuthenticateModal';
 

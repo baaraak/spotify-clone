@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from 'context/auth-context';
+import { useAuth } from 'context/auth.context';
 import { Route, Redirect } from 'react-router-dom';
 import AuthenticateModal from 'modules/authenticate-modal/AuthenticateModal';
 

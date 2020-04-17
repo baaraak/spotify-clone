@@ -7,7 +7,7 @@ import Navbar from 'components/navbar/Navbar';
 
 import { NavbarItems } from './Sidebar.constant';
 import Playlists from './components/Sidebar.playlists';
-import { useAuth } from 'context/auth-context';
+import { useAuth } from 'context/auth.context';
 import SiderbarFooter from './components/Sidebar.footer';
 
 import { Container, StyledLogo } from './Sidebar.styles';

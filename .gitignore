@@ -1,5 +1,7 @@
 .git*/
 
+.idea/
+
 # dependencies
 /node_modules
 

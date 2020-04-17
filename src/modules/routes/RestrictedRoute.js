@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from 'context/auth-context';
+import { useAuth } from 'context/auth.context';
 import { Route, Redirect } from 'react-router-dom';
 
 export default function RestrictedRoute({ children, ...rest }) {
