@@ -4,7 +4,8 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 import DefaultAvatar from 'images/avatar.jpg';
 import useOnClickOutside from 'hooks/useClickOutside';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useFirebase } from 'context/firebase.context';
 
 const Menu = styled.div`
   display: flex;
@@ -57,11 +58,10 @@ const DropMenuItem = styled.div`
   padding: 12px 20px;
   border-bottom: 1px solid #404040;
   transition: all 0.1s ease-out;
-  a {
-    color: ${props => props.theme.colors.text};
-    text-decoration: none;
-    font-size: 13px;
-  }
+  color: ${props => props.theme.colors.text};
+  text-decoration: none;
+  font-size: 13px;
+
   &:first-child {
     border-radius: 4px 4px 0 0;
   }
@@ -71,14 +71,14 @@ const DropMenuItem = styled.div`
   }
   &:hover {
     background: #333;
-    a {
-      color: ${props => props.theme.colors.white};
-    }
+    color: ${props => props.theme.colors.white};
   }
 `;
 
 export default function AuthHeader({ user }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { logout } = useFirebase();
+
   const ref = useRef();
 
   const toggleMenu = v => {
@@ -92,16 +92,14 @@ export default function AuthHeader({ user }) {
       <Avatar>
         <img src={user.photoURL || DefaultAvatar} alt="user avatar" />
       </Avatar>
-      <Name>{user.displayName || 'Barak Cohen'}</Name>
+      <Name>{user.displayName}</Name>
       <Icon>{menuOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}</Icon>
       {menuOpen && (
         <DropMenu ref={ref}>
-          <DropMenuItem>
-            <Link to="/account">Account</Link>
-          </DropMenuItem>
-          <DropMenuItem>
-            <Link to="/logout">Logout</Link>
-          </DropMenuItem>
+          <Link to="/account">
+            <DropMenuItem>Account</DropMenuItem>
+          </Link>
+          <DropMenuItem onClick={logout}>Logout</DropMenuItem>
         </DropMenu>
       )}
     </Menu>

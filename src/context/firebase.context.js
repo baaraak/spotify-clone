@@ -2,8 +2,16 @@ import React, { useEffect, useState } from 'react';
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import { useHistory } from 'react-router-dom';
 
 const FirebaseContext = React.createContext(null);
+
+const getUserProfileDetails = profile => ({
+  email: profile.email,
+  id: profile.uid,
+  displayName: profile.displayName,
+  photoURL: profile.photoURL,
+});
 
 const config = {
   apiKey: 'AIzaSyD6OoLkGyOU70tVQjYh_KR09c8ynOGZzZc',
@@ -19,37 +27,51 @@ const config = {
 export function FirebaseProvider(props) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     app.initializeApp(config);
     app.auth().onAuthStateChanged(u => {
-      setUser({
-        email: u.email,
-        id: u.uid,
-        displayName: u.displayName,
-        photoURL: u.photoURL,
-      });
+      if (u) {
+        console.log(0);
+        setUser(getUserProfileDetails(u));
+      }
       setIsLoading(false);
     });
   }, []);
 
   const loginLocal = ({ email, password }) =>
     app.auth().signInWithEmailAndPassword(email, password);
+
   const signup = ({ email, password, name: displayName }) =>
     app
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(user => {
-        user.updateProfile({
+      .then(async user => {
+        const { currentUser } = app.auth();
+        await currentUser.updateProfile({
           displayName,
         });
+        setUser(getUserProfileDetails(currentUser));
+      });
+
+  const logout = () =>
+    app
+      .auth()
+      .signOut()
+      .then(() => {
+        setUser(null);
+        history.push('/login');
       });
 
   if (isLoading) {
     return 'loading...';
   }
   return (
-    <FirebaseContext.Provider value={{ user, loginLocal, signup }} {...props} />
+    <FirebaseContext.Provider
+      value={{ user, loginLocal, signup, logout }}
+      {...props}
+    />
   );
 }
 
