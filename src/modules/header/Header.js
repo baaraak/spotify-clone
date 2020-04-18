@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <Container>
       <HeaderNav />
-      {user ? <AuthHeader /> : <UnAuthHeader />}
+      {user ? <AuthHeader user={user} /> : <UnAuthHeader />}
     </Container>
   );
 }

@@ -18,19 +18,36 @@ const config = {
 
 export function FirebaseProvider(props) {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     app.initializeApp(config);
     app.auth().onAuthStateChanged(u => {
-      setUser(u);
+      setUser({
+        email: u.email,
+        id: u.uid,
+        displayName: u.displayName,
+        photoURL: u.photoURL,
+      });
+      setIsLoading(false);
     });
   }, []);
 
   const loginLocal = ({ email, password }) =>
     app.auth().signInWithEmailAndPassword(email, password);
-  const signup = ({ email, password }) =>
-    app.auth().createUserWithEmailAndPassword(email, password);
+  const signup = ({ email, password, name: displayName }) =>
+    app
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        user.updateProfile({
+          displayName,
+        });
+      });
 
+  if (isLoading) {
+    return 'loading...';
+  }
   return (
     <FirebaseContext.Provider value={{ user, loginLocal, signup }} {...props} />
   );

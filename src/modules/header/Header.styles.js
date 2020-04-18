@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: sticky;
   background: rgba(0, 0, 0, 0.3);
   height: ${props => props.theme.headerHeight}px;
-  padding: 0 25px;
+  padding: 0 40px;
   z-index: ${props => props.theme.zIndex.header};
 `;
 
