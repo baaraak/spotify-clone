@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import { useHistory } from 'react-router-dom';
 
-const FirebaseContext = React.createContext(null);
+export const FirebaseContext = React.createContext(null);
 
 const getUserProfileDetails = profile => ({
   email: profile.email,
@@ -42,10 +42,8 @@ export function FirebaseProvider(props) {
   const loginLocal = ({ email, password }) =>
     app.auth().signInWithEmailAndPassword(email, password);
 
-  const loginFacebook = () => {
-    console.log('in login');
-    return app.auth().signInWithPopup(new app.auth.FacebookAuthProvider());
-  };
+  const loginFacebook = () =>
+    app.auth().signInWithPopup(new app.auth.FacebookAuthProvider());
 
   const signup = ({ email, password, name: displayName }) =>
     app

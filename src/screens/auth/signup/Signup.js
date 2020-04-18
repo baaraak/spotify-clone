@@ -20,7 +20,7 @@ import {
   FacebookButton,
 } from '../auth.styles';
 import { Error } from 'styles/common.styles';
-import { months } from 'utils/months';
+import { months } from 'services/months';
 import { useFirebase } from 'context/firebase.context';
 
 const AccountTitle = styled.div`
@@ -95,7 +95,7 @@ const RadioButton = styled(RadioButtonComponent)`
 `;
 
 export default function Signup() {
-  const { signup } = useFirebase();
+  const { signup, loginFacebook } = useFirebase();
   const { register, handleSubmit, errors } = useForm();
   const [error, setError] = useState();
   const onSubmit = data => {
@@ -111,7 +111,7 @@ export default function Signup() {
       <Logo fill="#000" width="190px" />
       <Line />
       <ContentContainer>
-        <FacebookButton fullWidth>
+        <FacebookButton onClick={loginFacebook} fullWidth>
           <FaFacebook /> SIGN UP WITH FACEBOOK
         </FacebookButton>
         <Divider>
