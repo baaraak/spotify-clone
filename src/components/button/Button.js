@@ -11,6 +11,7 @@ export default React.forwardRef(
       className,
       color = 'default',
       fullWidth = false,
+      onClick,
     },
     ref,
   ) => {
@@ -21,6 +22,7 @@ export default React.forwardRef(
         className={className}
         filled={filled}
         outlined={outlined}
+        onClick={onClick}
       >
         {children}
       </ButtonContainer>

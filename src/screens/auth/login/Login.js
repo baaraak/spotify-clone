@@ -17,23 +17,9 @@ import {
   PageContainer,
   SubmitButton,
   ErrorContainer,
+  FacebookButton,
 } from '../auth.styles';
 import { useFirebase } from 'context/firebase.context';
-
-const FacebookButton = styled(Button)`
-  color: ${props => props.theme.colors.white};
-  font-size: 14px;
-  padding: 15px 0;
-  margin-bottom: 10px;
-  background: ${props => props.theme.colors.facebook};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  svg {
-    margin-right: 15px;
-    font-size: 17px;
-  }
-`;
 
 const AccountTitle = styled.div`
   margin-top: 35px;
@@ -98,10 +84,8 @@ const ForgotPasswordLink = styled(Link)`
 `;
 
 export default function Login() {
-  const { loginLocal } = useFirebase();
-  const { register, handleSubmit, errors } = useForm({
-    submitFocusError: false,
-  });
+  const { loginLocal, loginFacebook } = useFirebase();
+  const { register, handleSubmit, errors } = useForm();
   const [error, setError] = useState();
 
   const onSubmit = data => {
@@ -119,7 +103,7 @@ export default function Login() {
       <Line />
       <ContentContainer>
         <LoginTitle>To continue, log in to Spotify. </LoginTitle>
-        <FacebookButton fullWidth>
+        <FacebookButton onClick={loginFacebook} fullWidth>
           <FaFacebook /> CONTINUE WITH FACEBOOK
         </FacebookButton>
         <Divider>

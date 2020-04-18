@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
+import { FaFacebook } from 'react-icons/fa';
 
-import Button from 'components/button/Button';
 import Select from 'components/select/Select';
 import RadioButtonComponent from 'components/radio-button/RadioButton';
 import CheckboxComponent from 'components/checkbox/Checkbox';
@@ -17,21 +17,11 @@ import {
   ErrorContainer,
   ContentContainer,
   PageContainer,
+  FacebookButton,
 } from '../auth.styles';
 import { Error } from 'styles/common.styles';
 import { months } from 'utils/months';
 import { useFirebase } from 'context/firebase.context';
-
-const FacebookButton = styled(Button)`
-  color: ${props => props.theme.colors.white};
-  font-size: 14px;
-  padding: 15px 40px;
-  background: ${props => props.theme.colors.facebook};
-  margin-bottom: 10px;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-`;
 
 const AccountTitle = styled.div`
   color: ${props => props.theme.colors.mainBlackDark};
@@ -106,9 +96,7 @@ const RadioButton = styled(RadioButtonComponent)`
 
 export default function Signup() {
   const { signup } = useFirebase();
-  const { register, handleSubmit, errors } = useForm({
-    submitFocusError: false,
-  });
+  const { register, handleSubmit, errors } = useForm();
   const [error, setError] = useState();
   const onSubmit = data => {
     setError(null);
@@ -123,7 +111,9 @@ export default function Signup() {
       <Logo fill="#000" width="190px" />
       <Line />
       <ContentContainer>
-        <FacebookButton>SIGN UP WITH FACEBOOK</FacebookButton>
+        <FacebookButton fullWidth>
+          <FaFacebook /> SIGN UP WITH FACEBOOK
+        </FacebookButton>
         <Divider>
           <Line />
           OR

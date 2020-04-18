@@ -42,6 +42,11 @@ export function FirebaseProvider(props) {
   const loginLocal = ({ email, password }) =>
     app.auth().signInWithEmailAndPassword(email, password);
 
+  const loginFacebook = () => {
+    console.log('in login');
+    return app.auth().signInWithPopup(new app.auth.FacebookAuthProvider());
+  };
+
   const signup = ({ email, password, name: displayName }) =>
     app
       .auth()
@@ -68,7 +73,7 @@ export function FirebaseProvider(props) {
   }
   return (
     <FirebaseContext.Provider
-      value={{ user, loginLocal, signup, logout }}
+      value={{ user, loginLocal, loginFacebook, signup, logout }}
       {...props}
     />
   );

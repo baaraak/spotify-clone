@@ -65,3 +65,18 @@ export const ErrorContainer = styled.div`
   font-size: 12px;
   font-weight: 500;
 `;
+
+export const FacebookButton = styled(Button)`
+  color: ${props => props.theme.colors.white};
+  font-size: 14px;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  background: ${props => props.theme.colors.facebook};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    margin-right: 15px;
+    font-size: 17px;
+  }
+`;
