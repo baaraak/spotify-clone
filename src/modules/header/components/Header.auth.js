@@ -4,7 +4,7 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 import DefaultAvatar from 'images/avatar.jpg';
 import useOnClickOutside from 'hooks/useClickOutside';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useFirebase } from 'context/firebase.context';
 
 const Menu = styled.div`

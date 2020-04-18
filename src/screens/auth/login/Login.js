@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
-import { FaApple, FaFacebook } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
 
 import Button from 'components/button/Button';
 
@@ -25,7 +25,7 @@ const FacebookButton = styled(Button)`
   font-size: 14px;
   padding: 15px 0;
   margin-bottom: 10px;
-  background: ${props => props.theme.colors.mainBlackDark};
+  background: ${props => props.theme.colors.facebook};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,12 +33,6 @@ const FacebookButton = styled(Button)`
     margin-right: 15px;
     font-size: 17px;
   }
-
-  ${props =>
-    props.background === 'blue' &&
-    css`
-      background: ${props => props.theme.colors.facebook};
-    `}
 `;
 
 const AccountTitle = styled.div`
@@ -125,12 +119,8 @@ export default function Login() {
       <Line />
       <ContentContainer>
         <LoginTitle>To continue, log in to Spotify. </LoginTitle>
-        <FacebookButton background="blue" fullWidth>
-          <FaFacebook /> CONTINUE WITH FACEBOOK
-        </FacebookButton>
         <FacebookButton fullWidth>
-          <FaApple />
-          CONTINUE WITH APPLE
+          <FaFacebook /> CONTINUE WITH FACEBOOK
         </FacebookButton>
         <Divider>
           <Line />

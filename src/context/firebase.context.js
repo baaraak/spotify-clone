@@ -33,7 +33,6 @@ export function FirebaseProvider(props) {
     app.initializeApp(config);
     app.auth().onAuthStateChanged(u => {
       if (u) {
-        console.log(0);
         setUser(getUserProfileDetails(u));
       }
       setIsLoading(false);
