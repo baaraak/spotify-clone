@@ -1,4 +1,4 @@
-import Home from 'screens/Home';
+import Home from 'screens/home/Home';
 import Search from 'screens/Search';
 import Library from 'screens/Library';
 import Login from 'screens/auth/login/Login';
