@@ -2,7 +2,7 @@ import React from 'react';
 import Category from 'components/category';
 import Card from 'components/card/Card';
 
-import { GridPageContainer, Content } from 'styles/page.styles';
+import { GridPageContainer } from 'styles/page.styles';
 
 import CategoriesJSONData from './data.json';
 
