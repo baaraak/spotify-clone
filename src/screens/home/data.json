@@ -1,57 +1,198 @@
 {
-    "categories": [{
-        "id": "recently-played",
-        "name": "Recently played",
-        "items": [{
-                "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
-                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
-                "id": "37i9dQZF1DWYbUY40ZDAwb2",
-                "image": "/cover.jpg",
-                "name": "להיטים שמחים",
-                "tracks": {
-                    "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
-                }
-            },
-            {
-                "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
-                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
-                "id": "37i9dQZF1DWY1bUY40ZDAwb",
-                "image": "/cover.jpg",
-                "name": "להיטים שמחים",
-                "tracks": {
-                    "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
-                }
-            },
-            {
-                "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
-                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
-                "id": "37i9dQ4ZF1DWYbUY40ZDAwb",
-                "image": "/cover.jpg",
-                "name": "להיטים שמחים",
-                "tracks": {
-                    "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
-                }
-            },
-            {
-                "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
-                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
-                "id": "37i9dQZF1DWYbUY410ZDAwb",
-                "image": "/cover.jpg",
-                "name": "להיטים שמחים",
-                "tracks": {
-                    "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
-                }
-            },
-            {
-                "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
-                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
-                "id": "374i9dQZF1DWYbUY40ZDAwb",
-                "image": "/cover.jpg",
-                "name": "להיטים שמחים",
-                "tracks": {
-                    "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
-                }
-            }
-        ]
-    }]
+  "categories": [
+    {
+      "id": "recently-played",
+      "name": "Recently played",
+      "items": [
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbUY410ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "374i9dQZF1DWYbUY40ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbfdsafsaUY40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZfsadasF1DWYbUY40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        }
+      ]
+    },
+    {
+      "id": "popular-playlists",
+      "name": "Popular playlists",
+      "items": [
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWY1bUY40ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQ4ZF1DWYbUY40ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbUY410ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "374i9dQZF1DWYbUY40ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbU2313Y40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1D1312WYbUY40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Made-for-u",
+      "name": "Made for Barak",
+      "items": [
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYb53245UY40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1534523DWYbUY40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        }
+      ]
+    },
+    {
+      "id": "New-podcast-episodes",
+      "name": "New podcast episodes",
+      "items": [
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQ4ZF1DWYbUY40ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbUY410ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "374i9dQZF1DWYbUY40ZDAwb",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbUY45345320ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        },
+        {
+          "description": "להיטים שישפרו לכם את המצברוח וירימו לכם את היום",
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb",
+          "id": "37i9dQZF1DWYbU53452Y40ZDAwb2",
+          "image": "/cover.jpg",
+          "name": "להיטים שמחים",
+          "tracks": {
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWYbUY40ZDAwb/tracks"
+          }
+        }
+      ]
+    }
+  ]
 }
